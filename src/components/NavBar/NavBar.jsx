@@ -18,13 +18,11 @@ const NavBar = () => {
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                   <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="¿Que deseas buscar?" aria-label="Search" />
+                    <input class="form-control2 mr-sm-2" type="search" placeholder="¿Que deseas buscar?" aria-label="Search" />
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
                   </form>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#" tabindex="-1"><CartWidget /></a>
-                </li>
+               
               </ul>
 
             </div>
@@ -53,16 +51,19 @@ const NavBar = () => {
                   </div>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link white" href="#">Escritorios</a>
+                  <a class="nav-link " href="#">Escritorios</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link white" href="#">Placards</a>
+                  <a class="nav-link " href="#">Placards</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link white" href="#">Camas</a>
+                  <a class="nav-link " href="#">Camas</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link white" href="#">Muebles a medida</a>
+                  <a class="nav-link " href="#">Muebles a medida</a>
+                </li>
+                <li class="nav-item cartItem">
+                  <a class="nav-link " href="#" tabindex="-1"><CartWidget /></a>
                 </li>
               </ul>
 

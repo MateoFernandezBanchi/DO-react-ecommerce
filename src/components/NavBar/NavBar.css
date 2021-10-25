@@ -38,3 +38,14 @@
     border-color:black
     
 }
+
+.cartItem {
+    margin-top: 0;
+}
+
+.form-control2 {
+    width: 400px;
+    padding: 8px;
+    border-radius: 10px;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
