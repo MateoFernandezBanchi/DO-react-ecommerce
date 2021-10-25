@@ -1,6 +1,6 @@
 import React from 'react'
 import './NavBar.css';
-
+import CartWidget from './CartWidget'
 
 const NavBar = () => {
 
@@ -23,7 +23,7 @@ const NavBar = () => {
                   </form>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#" tabindex="-1">Carrito</a>
+                  <a class="nav-link" href="#" tabindex="-1"><CartWidget /></a>
                 </li>
               </ul>
 
@@ -40,29 +40,29 @@ const NavBar = () => {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto d-flexCenter">
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                  <a class="nav-link dropdown-toggle white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     Categorias
                   </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Escritorios</a>
-                    <a class="dropdown-item" href="#">Placards</a>
+                  <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item " href="#">Escritorios</a>
+                    <a class="dropdown-item " href="#">Placards</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Camas</a>
-                    <a class="dropdown-item" href="#">Muebles a medida</a>
+                    <a class="dropdown-item " href="#">Camas</a>
+                    <a class="dropdown-item " href="#">Muebles a medida</a>
                   </div>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Escritorios</a>
+                  <a class="nav-link white" href="#">Escritorios</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Placards</a>
+                  <a class="nav-link white" href="#">Placards</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Camas</a>
+                  <a class="nav-link white" href="#">Camas</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Muebles a medida</a>
+                  <a class="nav-link white" href="#">Muebles a medida</a>
                 </li>
               </ul>
 

@@ -40,3 +40,10 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.bienvenida {
+  color: rgb(233, 167, 27);
+  font-size: 25px;
+  font-weight: bold;
+
+}

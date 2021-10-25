@@ -21,3 +21,20 @@
 .d-flexCenter {
     margin: 0 auto;
 }
+
+
+.nav-link {
+    color: white;
+  }
+
+  .btn-outline-success {
+      color: rgb(233, 167, 27);
+      border-color: rgb(233, 167, 27);
+  }
+
+  .btn-outline-success:hover {
+    background-color: rgb(233, 167, 27);
+    color: black;
+    border-color:black
+    
+}

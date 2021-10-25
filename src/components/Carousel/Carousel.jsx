@@ -9,13 +9,13 @@ function Carousel() {
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img className="imgCarousel" src="./imagenes/carousel1.png" class="d-block w-100" alt="..."/>
+      <img  src="./imagenes/carousel1.png" className="d-block w-50 imgCarousel" alt="..."/>
     </div>
     <div class="carousel-item">
-      <img className="imgCarousel" src="./imagenes/carousel2.png" class="d-block w-100" alt="..."/>
+      <img src="./imagenes/carousel2.png" className="d-block w-50 imgCarousel" alt="..."/>
     </div>
     <div class="carousel-item">
-      <img className="imgCarousel" src="./imagenes/carousel3.png" class="d-block w-100" alt="..."/>
+      <img  src="./imagenes/carousel3.png" className="d-block w-50 imgCarousel" alt="..."/>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
