@@ -1,0 +1,23 @@
+.green {
+    color: green;
+}
+
+.logoNav {
+    width: 70px;
+}
+
+.tituloNav {
+    color: rgb(206, 204, 204);
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    align-self: center;
+}
+
+.d-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.d-flexCenter {
+    margin: 0 auto;
+}
