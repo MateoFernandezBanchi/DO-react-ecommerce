@@ -7,7 +7,7 @@
 }
 
 .tituloNav {
-    color: rgb(206, 204, 204);
+    color: rgb(233, 167, 27);
     font-size: 30px;
     font-family: 'Times New Roman', Times, serif;
     align-self: center;
@@ -40,7 +40,7 @@
 }
 
 .cartItem {
-    margin-top: 0;
+    align-self: center;
 }
 
 .form-control2 {

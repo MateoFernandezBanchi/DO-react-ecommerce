@@ -62,8 +62,8 @@ const NavBar = () => {
                 <li class="nav-item">
                   <a class="nav-link " href="#">Muebles a medida</a>
                 </li>
-                <li class="nav-item cartItem">
-                  <a class="nav-link " href="#" tabindex="-1"><CartWidget /></a>
+                <li class="nav-item d-flex">
+                  <a class="nav-link cartItem" href="#" tabindex="-1"><CartWidget /></a>
                 </li>
               </ul>
 
