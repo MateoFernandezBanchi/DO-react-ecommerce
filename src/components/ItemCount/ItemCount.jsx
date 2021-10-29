@@ -1,18 +1,31 @@
 import {useState}  from 'react'
 import './ItemCount.css'
 
-const ItemCount = () => {
+const ItemCount = ({stock, initial}) => {
     
     const [count, setCount] = useState(0)
-    let stock = 5
     
+    
+    const sumarContador=()=>  {
+        if (count < stock) {setCount(count+1)} else {alert('superaste el límite de productos')}; console.log(count)
+    }
+    const restarContador=()=>  {
+        if (count > initial) {setCount(count-1)} else {alert('no hay stock')}; console.log(count)
+    }
+
+    const onAdd=()=>  {
+        if (count >= 1) alert(`agregaste ${count} productos`)
+    }
+
+
+
     return (
        
         <div>
-            <button className='buttonCount'  onClick={()=>{if (count > 0) {setCount(count-1)} else {}; console.log(count)}} > - </button>
+            <button className='buttonCount'  onClick={()=>restarContador()} > - </button>
             <span className='white'>{count}</span>
-            <button className='buttonCount' onClick={()=>{if (count <= stock) {setCount(count+1)} else {}; console.log(count)}} > + </button>
-            <button className='buttonCount' > Agregar al carrito </button>
+            <button className='buttonCount' onClick={()=>sumarContador()} > + </button>
+            <button className='buttonCount' onClick={()=>onAdd()}> Agregar al carrito </button>
         </div>
     )
 }
