@@ -1,0 +1,23 @@
+.card-margin {
+    margin: 0 10px;
+}
+
+.btn {
+    border-color: rgb(233, 167, 27);
+    color: rgb(233, 167, 27);
+    background-color: black;
+}
+
+.btn:hover {
+    background-color: rgb(233, 167, 27);
+    color: black;
+}
+
+.loading {
+    color: white;
+    font-size: 40px;
+}
+
+.cardFoto {
+    width: 200px;
+}
