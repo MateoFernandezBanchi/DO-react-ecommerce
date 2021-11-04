@@ -9,6 +9,7 @@ const productos = [
     {id:8, categoria:"Cama", nombre: "Cama 1 1/2 plaza", precio:20000, foto:"https://http2.mlstatic.com/D_NQ_NP_645737-MLA42953772543_072020-O.webp", stock:2},
     {id:9, categoria:"Cama", nombre: "Cama 2 plazas", precio:25000, foto:"https://http2.mlstatic.com/D_NQ_NP_848846-MLA43967079620_112020-O.webp", stock:2},
     {id:10, categoria:"Cama", nombre: "Cama 1 plaza", precio:15000, foto:"https://http2.mlstatic.com/D_NQ_NP_960811-MLA46655194193_072021-O.webp", stock:3}
+    
 
 ];
 

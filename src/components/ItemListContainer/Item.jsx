@@ -1,4 +1,5 @@
 import React from 'react'
+import ItemCount from '../ItemCount/ItemCount'
 
 export const Item = ({prod}) => {
     return (
@@ -9,11 +10,14 @@ export const Item = ({prod}) => {
                     <div className='card-body'>
                         <img className='cardFoto' src={prod.foto} alt="" ></img>
                         <p>$ {prod.precio} </p>
+                        <p>Stock {prod.stock}</p>
                     </div>
+                    
                     <div className='card-footer'>
                        <button className='btn btn-outline-primary btn-block'>Detalle del producto</button>
                        
                     </div>
+                    <ItemCount stock={prod.stock} initial='0'/>
                  </div>
     )
 }

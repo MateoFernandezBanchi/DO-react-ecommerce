@@ -8,3 +8,12 @@
     font-size: 20px;
 
 }
+
+.buttonCount:hover {
+    background-color: black;
+    color: rgb(233, 167, 27);
+}
+
+.count {
+    color: black;
+}

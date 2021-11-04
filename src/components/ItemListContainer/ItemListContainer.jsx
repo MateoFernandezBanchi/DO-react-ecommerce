@@ -33,10 +33,10 @@ function ItemListContainer({saludo}) {
 
         }
         </div>
-        <div>
+        {/* <div>
            <p className="bienvenida">{saludo}</p> 
            <ItemCount stock={5} initial={0} />
-        </div>
+        </div> */}
 
         
         </>
