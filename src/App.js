@@ -17,10 +17,11 @@ function App() {
        <NavBar />
        <Routes>
  
-       {/* <Route exact path='/' element ={ <ItemListContainer saludo="¿Que esperas para mejorar tu hogar?"/>}></Route> */}
-       <Route exact path='/' element ={ <ItemDetailContainer/>}></Route>
+        <Route exact path='/' element ={ 
+        <ItemListContainer saludo="¿Que esperas para mejorar tu hogar?"/>}></Route> 
+       <Route exact path='/detail' element ={ <ItemDetailContainer/>}></Route>
 </Routes>
-      <Carousel />
+      {/* <Carousel /> */}
       <Footer />
      
     </div>

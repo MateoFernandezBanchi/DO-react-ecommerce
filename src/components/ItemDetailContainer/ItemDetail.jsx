@@ -1,28 +1,41 @@
 import React from 'react'
 import ItemCount from '../ItemCount/ItemCount'
+import './ItemDetail.css'
+import Carousel from '../Carousel/Carousel'
 
 
-export const ItemDetail = ({prod, key}) => {
+export const ItemDetail = ({prod}) => {
     
         //    if (prod.id > 2) {
             return (
                 <>
-           <div className='card w-25 mt-5 card-margin' key={prod.id}>
-                    <div className='card-header'>
-                        {`${prod.nombre} - ${prod.categoria}`}
+           <div className='container'>
+                    <div className='detail-header'>
+                       <h2> {prod.nombre} </h2>
+                       
                     </div>
-                    <div className='card-body'>
-                        <img className='cardFoto' src={prod.foto} alt="" ></img>
-                        <p>$ {prod.precio} </p>
+                    <div className='card-body row'>
+                        <div className='col'> 
+                        {/* <img className='cardFoto' src={prod.foto} alt="" ></img> */}
+                         <Carousel foto1={prod.foto1}
+                                    foto2={prod.foto2}
+                                    foto3={prod.foto3}/> 
+                        
+                        </div>
+                        <div className='col'>
+                        <h3> $ {prod.precio}</h3> 
+                    <p>Categoria: {prod.categoria} </p>
                         <p>Stock {prod.stock}</p>
-                        <p>{key}</p>
+                        <p>{prod.descripcion}</p>
+                        </div>
+                        
                     </div>
                     
                     <div className='card-footer'>
-                       <button className='btn btn-outline-primary btn-block'>Detalle del producto</button>
+                    <ItemCount stock={prod.stock} initial='0'/>
                        
                     </div>
-                    <ItemCount stock={prod.stock} initial='0'/>
+                    
                     
                  </div>
      </> 

@@ -4,7 +4,7 @@ import {ItemDetail} from './ItemDetail'
 
 export default function ItemDetailContainer() {
 
-    const [productos, setProductos] = useState ([])
+    const [productos, setProductos] = useState ({})
     const [loading, setLoading] = useState (true)
     
     useEffect (() => {
@@ -24,7 +24,7 @@ export default function ItemDetailContainer() {
         <div>
             { loading ? <div class="spinner-border text-light" role="status">
   <span class="sr-only">Loading...</span> 
-</div>   :  <ItemDetail prod={productos} key={prod.id}/>
+</div>   :  <ItemDetail prod={productos}/>
                 
                 
                 // (prod => <ItemDetail prod={prod} key={prod.id}/>

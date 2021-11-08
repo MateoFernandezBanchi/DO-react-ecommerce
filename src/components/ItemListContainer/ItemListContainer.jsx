@@ -32,11 +32,7 @@ function ItemListContainer({saludo}) {
 
         }
         </div>
-         
-
-        
         </>
     )
 }
-
 export default ItemListContainer

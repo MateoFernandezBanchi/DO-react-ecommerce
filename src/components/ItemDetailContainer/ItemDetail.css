@@ -1,0 +1,17 @@
+.container {
+    
+    background-color: white;
+    padding: 0px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    border-radius: 2rem;
+}
+
+.detail-header {
+    color: #131313;
+    background-color: rgb(233, 167, 27);
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    padding: 1rem;
+}
+
