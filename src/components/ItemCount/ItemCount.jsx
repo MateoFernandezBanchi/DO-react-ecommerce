@@ -7,10 +7,10 @@ const ItemCount = ({stock, initial}) => {
     
     
     const sumarContador=()=>  {
-        if (count < stock) {setCount(count+1)} else {alert('superaste el límite de productos')}; console.log(count)
+        if (count < stock) {setCount(count+1)} else {alert('no hay stock suficiente')}; console.log(count)
     }
     const restarContador=()=>  {
-        if (count > initial) {setCount(count-1)} else {alert('no hay stock')}; console.log(count)
+        if (count > initial) {setCount(count-1)}; console.log(count)
     }
 
     const onAdd=()=>  {
