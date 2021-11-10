@@ -4,6 +4,7 @@ import './App.css';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import Footer from './components/Footer/Footer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import { Cart } from './components/Cart/Cart';
 
 
 
@@ -22,8 +23,9 @@ function App() {
         <ItemListContainer saludo="¿Qué esperas para mejorar tu hogar?"/>}></Route> 
         
        <Route exact path='/detail/:detailID' element ={ <ItemDetailContainer/>}></Route>
+       <Route exact path='/Cart' element ={ <Cart/>}></Route>
 </Routes>
-      {/* <Carousel /> */}
+     
       <Footer />
      
     </div>

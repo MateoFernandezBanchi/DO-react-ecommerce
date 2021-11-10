@@ -9,7 +9,9 @@
 
 .detail-header {
     color: #131313;
-    background-color: rgb(233, 167, 27);
+    background: rgb(251,142,33);
+background: linear-gradient(16deg, rgba(251,142,33,1) 0%, rgba(236,171,33,1) 49%, rgba(245,167,0,1) 100%);
+    color: black;
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
     padding: 1rem;

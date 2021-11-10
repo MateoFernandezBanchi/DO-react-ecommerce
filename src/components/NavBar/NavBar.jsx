@@ -10,7 +10,8 @@ const NavBar = () => {
           <nav class="navbar navbar-expand-lg navbar-light d-flex">
             <div className="d-flex header">
             <Link to='/'> 
-              <a className="navbar-brand" href="#"> <img className="logoNav" src="imagenes/LogoFinal.png" alt="" srcset="" />
+              <a className="navbar-brand" href="#"> 
+              <img className="logoNav" src="imagenes/LogoFinal.png" alt="" srcset="" />
               </a>
               </Link>
               
