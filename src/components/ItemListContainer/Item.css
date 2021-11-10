@@ -36,6 +36,15 @@ background: linear-gradient(16deg, rgba(251,142,33,1) 0%, rgba(236,171,33,1) 49%
     background-color: rgb(241, 182, 55);
 }
 
+.card-footer {
+    border-top: solid rgba(236,171,33,1) 2px;
+  
+}
+
+.card-body {
+    height: 250px;
+}
+
 a {
     color: black;
     text-decoration: none;

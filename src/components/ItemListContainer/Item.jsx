@@ -11,11 +11,11 @@ export const Item = ({prod, key}) => {
                     </div>
                     <div className='card-body'>
                         <img className='cardFoto' src={prod.foto1} alt="" ></img>
-                       
+                        <p className='categoria'>{prod.categoria}</p>  
                     </div>
                     
                      <div className='card-footer'>
-                     <p className='categoria'>{prod.categoria}</p>   
+                   
                      <p className='precio'> $ {prod.precio} </p> 
                        
                     </div> 
