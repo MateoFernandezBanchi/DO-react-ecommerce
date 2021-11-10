@@ -1,3 +1,7 @@
+.card {
+    width: 25%;
+}
+
 .card-margin {
     margin: 0 10px;
 }
@@ -19,7 +23,7 @@
 }
 
 .cardFoto {
-     width: 100%; 
+     width: 50%; 
 }
 
 .card-header {
@@ -68,3 +72,8 @@ a:hover {
   .categoria {
       color: rgb(65, 64, 64);
   }
+
+  @media (max-width: 1024px) {
+    .card {
+      width: 80%;
+    }}

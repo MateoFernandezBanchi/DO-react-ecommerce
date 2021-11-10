@@ -63,3 +63,9 @@
     margin-left: 1rem;
      margin-right: 1rem;
 }
+
+@media (max-width: 1024px) {
+    .form-control2 {
+        width: 100%;
+        
+    }}
