@@ -7,15 +7,16 @@
 }
 
 .tituloNav {
-    color: rgb(233, 167, 27);
+
     font-size: 30px;
     font-family: 'Times New Roman', Times, serif;
     align-self: center;
+    justify-content: center;
 }
 
 .d-flex {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .d-flexCenter {
@@ -25,6 +26,7 @@
 
 .nav-link {
     color: white;
+    font-size: 20px;
   }
 
   .btn-outline-success {
@@ -48,4 +50,15 @@
     padding: 8px;
     border-radius: 10px;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.navbar {
+    background-color: rgb(233, 167, 27);
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.header, .search {
+    margin-left: 1rem;
+     margin-right: 1rem;
 }

@@ -19,5 +19,49 @@
 }
 
 .cardFoto {
-    width: 200px;
+     width: 100%; 
 }
+
+.card-header {
+    background-color:rgb(233, 167, 27);
+    color: black;
+}
+
+.card:hover .card-header {
+    background-color: rgb(241, 182, 55);
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.titleCardHeader {
+    font-size: 20px;
+}
+
+.card:hover {
+    box-shadow:  rgba(248, 248, 248, 0.7)  5px 5px 10px ;
+   
+    transition: 0.2s;
+}
+
+.bienvenida {
+    color: rgb(233, 167, 27);
+    font-size: 25px;
+   padding-top: 2rem;
+  
+  }
+
+  .precio {
+      font-size: 20px;
+  }
+
+  .categoria {
+      color: rgb(65, 64, 64);
+  }

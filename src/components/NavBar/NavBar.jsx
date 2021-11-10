@@ -1,34 +1,35 @@
 import React from 'react'
 import './NavBar.css';
 import CartWidget from './CartWidget'
-
+import {Link} from 'react-router-dom'
 const NavBar = () => {
 
 
   return (
         <div>
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex">
-            <div className="d-flex">
+          <nav class="navbar navbar-expand-lg navbar-light d-flex">
+            <div className="d-flex header">
+            <Link to='/'> 
               <a className="navbar-brand" href="#"> <img className="logoNav" src="imagenes/LogoFinal.png" alt="" srcset="" />
               </a>
+              </Link>
+              
               <h1 className="tituloNav">DO - MUEBLES A MEDIDA</h1>
+            
             </div>
 
-            <div>
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+            <div className='search'>
+              
                   <form class="form-inline my-2 my-lg-0">
                     <input class="form-control2 mr-sm-2" type="search" placeholder="¿Que deseas buscar?" aria-label="Search" />
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
                   </form>
-                </li>
-               
-              </ul>
+                
 
             </div>
           </nav>
 
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flexCenter">
+          <nav class="navbar navbar-expand-lg navbar-light  d-flexCenter">
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,33 +38,31 @@ const NavBar = () => {
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto d-flexCenter">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Categorias
-                  </a>
-                  <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item " href="#">Escritorios</a>
-                    <a class="dropdown-item " href="#">Placards</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item " href="#">Camas</a>
-                    <a class="dropdown-item " href="#">Muebles a medida</a>
-                  </div>
+              <li class="nav-item">
+                  <Link to='/'> 
+                  <a class="nav-link " href="#">Inicio</a>
+                  </Link>
                 </li>
+                
                 <li class="nav-item">
-                  <a class="nav-link " href="#">Escritorios</a>
-                </li>
-                <li class="nav-item">
+                <Link to='/categoria/Placards'> 
                   <a class="nav-link " href="#">Placards</a>
+                  </Link>
                 </li>
                 <li class="nav-item">
+                <Link to='/categoria/Cama'> 
                   <a class="nav-link " href="#">Camas</a>
+                  </Link>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="#">Muebles a medida</a>
+                <Link to='/categoria/Escritorios'> 
+                  <a class="nav-link " href="#">Escritorios</a>
+                  </Link>
                 </li>
                 <li class="nav-item d-flex">
+                <Link to='/Cart'> 
                   <a class="nav-link cartItem" href="#" tabindex="-1"><CartWidget /></a>
+                  </Link>
                 </li>
               </ul>
 

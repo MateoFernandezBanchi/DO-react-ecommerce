@@ -1,6 +1,5 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
-import Carousel from './components/Carousel/Carousel';
 import './App.css';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import Footer from './components/Footer/Footer';
@@ -18,8 +17,11 @@ function App() {
        <Routes>
  
         <Route exact path='/' element ={ 
-        <ItemListContainer saludo="¿Que esperas para mejorar tu hogar?"/>}></Route> 
-       <Route exact path='/detail' element ={ <ItemDetailContainer/>}></Route>
+        <ItemListContainer saludo="¿Qué esperas para mejorar tu hogar?"/>}></Route> 
+        <Route exact path='/categoria/:categoryID' element ={ 
+        <ItemListContainer saludo="¿Qué esperas para mejorar tu hogar?"/>}></Route> 
+        
+       <Route exact path='/detail/:detailID' element ={ <ItemDetailContainer/>}></Route>
 </Routes>
       {/* <Carousel /> */}
       <Footer />
