@@ -1,23 +1,27 @@
 import React from 'react'
-import ItemCount from '../ItemCount/ItemCount'
+import {Link} from 'react-router-dom'
 
-export const Item = ({prod}) => {
+export const Item = ({prod, key}) => {
     return (
-        <div className='card w-25 mt-5 card-margin' key={prod.id}>
+       
+        <div className='card mt-4 card-margin' key={key}>
+             <Link to= {`/detail/${prod.id}`}>
                     <div className='card-header'>
-                        {`${prod.nombre} - ${prod.categoria}`}
+                        <h3 className='titleCardHeader'>{prod.nombre} </h3>
                     </div>
                     <div className='card-body'>
-                        <img className='cardFoto' src={prod.foto} alt="" ></img>
-                        <p>$ {prod.precio} </p>
-                        <p>Stock {prod.stock}</p>
+                        <img className='cardFoto' src={prod.foto1} alt="" ></img>
+                        <p className='categoria'>{prod.categoria}</p>  
                     </div>
                     
-                    <div className='card-footer'>
-                       <button className='btn btn-outline-primary btn-block'>Detalle del producto</button>
+                     <div className='card-footer'>
+                   
+                     <p className='precio'> $ {prod.precio} </p> 
                        
-                    </div>
-                    <ItemCount stock={prod.stock} initial='0'/>
+                    </div> 
+                    
+                    </Link>
                  </div>
+               
     )
 }

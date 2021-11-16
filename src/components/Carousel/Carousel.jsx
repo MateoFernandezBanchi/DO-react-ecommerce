@@ -1,21 +1,22 @@
 import React from 'react'
-
 import './Carousel.css';
 
 
-function Carousel() {
+function Carousel({foto1, foto2, foto3} ) {
+
+
     return (
         <div>
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img  src="./imagenes/carousel2.png" className="d-block w-50 imgCarousel" alt="..."/>
+      <img  src={foto1}  className="d-block w-50 imgCarousel" alt="..."/>
     </div>
     <div class="carousel-item">
-      <img src="./imagenes/carousel1.png" className="d-block w-50 imgCarousel" alt="..."/>
+      <img src={foto2} className="d-block w-50 imgCarousel" alt="..."/>
     </div>
     <div class="carousel-item">
-      <img  src="./imagenes/carousel3.png" className="d-block w-50 imgCarousel" alt="..."/>
+      <img  src={foto3} className="d-block w-50 imgCarousel" alt="..."/>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

@@ -1,3 +1,7 @@
+.card {
+    width: 25%;
+}
+
 .card-margin {
     margin: 0 10px;
 }
@@ -19,5 +23,66 @@
 }
 
 .cardFoto {
-    width: 200px;
+     width: 50%; 
 }
+
+.card-header {
+    background: rgb(251,142,33);
+background: linear-gradient(16deg, rgba(251,142,33,1) 0%, rgba(236,171,33,1) 49%, rgba(245,167,0,1) 100%);
+    color: black;
+}
+
+.card:hover .card-header {
+    background-color: rgb(241, 182, 55);
+}
+
+.card-footer {
+    border-top: solid rgba(236,171,33,1) 2px;
+  
+}
+
+.card-body {
+    height: 250px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.titleCardHeader {
+    font-size: 20px;
+    color: #070525
+}
+
+.card:hover {
+    box-shadow:  rgba(248, 248, 248, 0.7)  5px 5px 10px ;
+   
+    transition: 0.2s;
+}
+
+.bienvenida {
+    color: rgb(233, 167, 27);
+    font-size: 25px;
+   padding-top: 2rem;
+   text-align: center;
+  
+  }
+
+  .precio {
+      font-size: 20px;
+  }
+
+  .categoria {
+      color: rgb(65, 64, 64);
+  }
+
+  @media (max-width: 1024px) {
+    .card {
+      width: 80%;
+    }}

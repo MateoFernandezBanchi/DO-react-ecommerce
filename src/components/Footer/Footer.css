@@ -1,6 +1,9 @@
 .footerContainer {
+    margin-top: 2rem;
+   
     background-color: #343A40;
     color: white;
+    text-align: left;
 }
 
 h4 {
@@ -13,4 +16,8 @@ li {
 .linkFooter {
    color: white;
    text-decoration: none;
+}
+
+.footerList1 {
+    padding: 2rem
 }
