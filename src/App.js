@@ -1,10 +1,11 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import './App.css';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import Footer from './components/Footer/Footer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { Cart } from './components/Cart/Cart';
+import {CartContextProvider} from './context/CartContext'
 
 
 
@@ -12,23 +13,25 @@ import { Cart } from './components/Cart/Cart';
 function App() {
   return (
     <BrowserRouter>
+    <CartContextProvider>
     <div className="App">
      
        <NavBar />
-       <Routes>
+       <Switch>
  
-        <Route exact path='/' element ={ 
-        <ItemListContainer saludo="¿Qué esperas para mejorar tu hogar?"/>}></Route> 
-        <Route exact path='/categoria/:categoryID' element ={ 
-        <ItemListContainer saludo="¿Qué esperas para mejorar tu hogar?"/>}></Route> 
+        <Route exact path='/'> 
+        <ItemListContainer saludo= {"¿Qué esperas para mejorar tu hogar?"}/></Route> 
+        <Route exact path='/categoria/:categoryID'> 
+        <ItemListContainer saludo= {"¿Qué esperas para mejorar tu hogar?"}/></Route> 
         
-       <Route exact path='/detail/:detailID' element ={ <ItemDetailContainer/>}></Route>
-       <Route exact path='/Cart' element ={ <Cart/>}></Route>
-</Routes>
+       <Route exact path='/detail/:detailID' component ={ ItemDetailContainer}></Route>
+       <Route exact path='/Cart' component ={Cart}></Route>
+      </Switch>
      
       <Footer />
      
     </div>
+    </CartContextProvider>
     </BrowserRouter>
   );
 }

@@ -7,6 +7,8 @@ export default function ItemDetailContainer() {
 
     const [productos, setProductos] = useState ({})
     const [loading, setLoading] = useState (true)
+    const [addCart, setAddCart] = useState (true)
+
     const {detailID} = useParams();
     useEffect (() => {
         getFetch
@@ -19,13 +21,15 @@ export default function ItemDetailContainer() {
     },[detailID])
 
     // const productoSeleccionado = productos.find (prod => (prod.id === 3))
-
+    const onAdd = () => {
+        setAddCart(false)
+    }
 
     return (
         <div>
             { loading ? <div class="spinner-border text-light" role="status">
   <span class="sr-only">Loading...</span> 
-</div>   :  <ItemDetail prod={productos}/>
+</div>   :  <ItemDetail prod={productos} onAdd={onAdd} state= {addCart} />
                 
         
     }

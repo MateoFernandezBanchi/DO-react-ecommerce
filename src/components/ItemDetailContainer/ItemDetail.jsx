@@ -1,12 +1,13 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 import Carousel from '../Carousel/Carousel'
 
 
-export const ItemDetail = ({prod}) => {
+export const ItemDetail = ({prod, onAdd, state}) => {
     
-        //    if (prod.id > 2) {
+
             return (
                 <>
            <div className='container'>
@@ -32,8 +33,15 @@ export const ItemDetail = ({prod}) => {
                     </div>
                     
                     <div className='card-footer'>
-                    <ItemCount stock={prod.stock} initial='0'/>
-                       <p>Hola Mundo</p>
+                                            
+                        {state ?  
+                         <><ItemCount stock={prod.stock} initial='0' /><button className='buttonCount' onClick={onAdd}> Agregar al Carrito </button></> : 
+                       
+                         <Link to='/Cart'>
+                       <button className='buttonCount'>Ir al Carrito</button>
+                        </Link>
+                       }
+
                     </div>
                     
                     
