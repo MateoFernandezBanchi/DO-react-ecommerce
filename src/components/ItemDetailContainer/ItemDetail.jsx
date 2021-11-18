@@ -33,7 +33,7 @@ export const ItemDetail = ({prod}) => {
                     
                     <div className='card-footer'>
                     <ItemCount stock={prod.stock} initial='0'/>
-                       
+                       <p>Hola Mundo</p>
                     </div>
                     
                     
