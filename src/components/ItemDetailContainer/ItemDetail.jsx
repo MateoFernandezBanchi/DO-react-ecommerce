@@ -5,7 +5,7 @@ import './ItemDetail.css'
 import Carousel from '../Carousel/Carousel'
 
 
-export const ItemDetail = ({prod, onAdd, state}) => {
+export const ItemDetail = ({prod, state, onAdd}) => {
     
 
             return (
@@ -35,7 +35,7 @@ export const ItemDetail = ({prod, onAdd, state}) => {
                     <div className='card-footer'>
                                             
                         {state ?  
-                         <><ItemCount stock={prod.stock} initial='0' /><button className='buttonCount' onClick={onAdd}> Agregar al Carrito </button></> : 
+                         <ItemCount stock={prod.stock} initial='0' onAdd= {onAdd} /> : 
                        
                          <Link to='/Cart'>
                        <button className='buttonCount'>Ir al Carrito</button>

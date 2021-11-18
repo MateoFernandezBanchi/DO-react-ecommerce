@@ -1,13 +1,15 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import { getFetch } from '../../services/getFetch';
 import {ItemDetail} from './ItemDetail'
 import {useParams} from 'react-router-dom'
+import { CartContext } from '../../context/CartContext';
 
 export default function ItemDetailContainer() {
 
     const [productos, setProductos] = useState ({})
     const [loading, setLoading] = useState (true)
     const [addCart, setAddCart] = useState (true)
+    const [count, setCount] = useState (0)
 
     const {detailID} = useParams();
     useEffect (() => {
@@ -20,10 +22,15 @@ export default function ItemDetailContainer() {
         .finally(()=> setLoading(false))
     },[detailID])
 
+    const {CartList, agregarCarrito} = useContext (CartContext) 
     // const productoSeleccionado = productos.find (prod => (prod.id === 3))
-    const onAdd = () => {
-        setAddCart(false)
+    const onAdd = (cant) => {
+        setCount (cant)
+        setAddCart(false);
+        agregarCarrito({...productos, cantidad: cant})
     }
+    console.log(CartList)
+    console.log(count)
 
     return (
         <div>

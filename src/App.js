@@ -12,8 +12,8 @@ import {CartContextProvider} from './context/CartContext'
 
 function App() {
   return (
-    <BrowserRouter>
     <CartContextProvider>
+    <BrowserRouter>
     <div className="App">
      
        <NavBar />
@@ -31,8 +31,8 @@ function App() {
       <Footer />
      
     </div>
-    </CartContextProvider>
     </BrowserRouter>
+    </CartContextProvider>
   );
 }
 
