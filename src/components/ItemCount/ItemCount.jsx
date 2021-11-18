@@ -27,9 +27,7 @@ const ItemCount = ({ stock, initial }) => {
         -
       </button>
       <span className="count">{count}</span>
-      <button className="buttonCount" onClick={() => sumarContador()}>
-        +
-      </button>
+      <button className="buttonCount" onClick={() => sumarContador()}>+</button>
     </div>
   );
 };
