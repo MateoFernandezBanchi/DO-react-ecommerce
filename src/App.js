@@ -28,8 +28,8 @@ function App() {
        <Route exact path='/Cart' component ={Cart}></Route>
       </Switch>
      
-      <Footer />
-     
+       {/* <Footer /> 
+      */}
     </div>
     </BrowserRouter>
     </CartContextProvider>

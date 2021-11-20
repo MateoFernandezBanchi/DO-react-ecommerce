@@ -1,8 +1,8 @@
-import {useState, useEffect, useContext} from 'react';
+import {useState, useEffect} from 'react';
 import { getFetch } from '../../services/getFetch';
 import {ItemDetail} from './ItemDetail'
 import {useParams} from 'react-router-dom'
-import { CartContext } from '../../context/CartContext';
+import { useCartContext } from '../../context/CartContext';
 
 export default function ItemDetailContainer() {
 
@@ -22,7 +22,7 @@ export default function ItemDetailContainer() {
         .finally(()=> setLoading(false))
     },[detailID])
 
-    const {CartList, agregarCarrito} = useContext (CartContext) 
+    const {CartList, agregarCarrito} = useCartContext () 
     // const productoSeleccionado = productos.find (prod => (prod.id === 3))
     const onAdd = (cant) => {
         setCount (cant)

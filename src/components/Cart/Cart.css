@@ -1,3 +1,23 @@
 .cartTitle {
     color: white;
 }
+
+.cartContent {
+    background-color: antiquewhite;
+    
+}
+
+.prodName {
+    font-size: 20px;
+    
+}
+
+.fotoCart {
+    width: 5%;
+}
+
+.btnTrash {
+    color: blanchedalmond;
+    font-size: 25px;
+
+}

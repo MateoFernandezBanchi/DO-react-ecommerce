@@ -7,9 +7,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   const sumarContador = () => {
     if (count < stock) {
       setCount(count + 1);
-    } else {
-      alert("no hay stock suficiente");
-    }
+    } 
     console.log(count);
   };
   const restarContador = () => {

@@ -2,9 +2,11 @@ import React from 'react'
 import './NavBar.css';
 import CartWidget from './CartWidget'
 import {Link} from 'react-router-dom'
+import { useCartContext } from '../../context/CartContext';
+
 const NavBar = () => {
 
-
+const { cantidadItem } = useCartContext()
   return (
         <div>
           <nav class="navbar navbar-expand-lg navbar-light d-flex">
@@ -62,7 +64,9 @@ const NavBar = () => {
                 </li>
                 <li class="nav-item d-flex">
                 <Link to='/Cart'> 
+                
                   <a class="nav-link cartItem" href="#" tabindex="-1"><CartWidget /></a>
+                  <div className='cantidadItem'>{cantidadItem() !== 0 && cantidadItem()}</div>
                   </Link>
                 </li>
               </ul>

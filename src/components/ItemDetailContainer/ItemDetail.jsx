@@ -37,9 +37,12 @@ export const ItemDetail = ({prod, state, onAdd}) => {
                         {state ?  
                          <ItemCount stock={prod.stock} initial='0' onAdd= {onAdd} /> : 
                        
-                         <Link to='/Cart'>
-                       <button className='buttonCount'>Ir al Carrito</button>
-                        </Link>
+                         <><Link to='/'>
+                                    <button className='buttonCount'>Volver</button>
+                                </Link><Link to='/Cart'>
+                                        <button className='buttonCount'>Ir al Carrito</button>
+                                    </Link></>
+                        
                        }
 
                     </div>
