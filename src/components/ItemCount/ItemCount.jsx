@@ -9,7 +9,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     if (count < stock) {
       setCount(count + 1);
     } else {
-      setStockMessage ('No hay stock disponible')
+      setStockMessage ('No hay más stock disponible')
       eraseStockMessage()
       
     }

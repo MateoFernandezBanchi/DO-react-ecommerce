@@ -37,7 +37,7 @@ export const ItemDetail = ({prod, state, onAdd}) => {
                     ) : (
                       <>
                         <Link to="/">
-                          <button className="buttonCount">Volver</button>
+                          <button className="buttonCount">Seguir comprando</button>
                         </Link>
                         <Link to="/Cart">
                           <button className="buttonCount">Ir al Carrito</button>

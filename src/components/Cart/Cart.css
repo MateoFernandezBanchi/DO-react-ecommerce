@@ -14,7 +14,7 @@
 }
 
 .fotoCart {
-    width: 15%;
+    width: 20%;
 }
 
 .btnTrash {
@@ -34,4 +34,13 @@
 
 .gifWaiting {
     width: 30%;
+}
+/* 
+.totalCount {
+    width: 200%;
+} */
+
+.totalCountContainer {
+    background-color: black;
+    color: white;
 }
