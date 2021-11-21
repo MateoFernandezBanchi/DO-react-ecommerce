@@ -4,6 +4,7 @@
 
 .cartContent {
     background-color: antiquewhite;
+    width: 60%;
     
 }
 
@@ -13,11 +14,24 @@
 }
 
 .fotoCart {
-    width: 5%;
+    width: 15%;
 }
 
 .btnTrash {
-    color: blanchedalmond;
+    color: white;
     font-size: 25px;
 
+}
+
+.btnTrash:hover {
+    color: rgb(233, 167, 27);
+}
+
+.headerTable {
+    background-color: black;
+    color: white;
+}
+
+.gifWaiting {
+    width: 30%;
 }

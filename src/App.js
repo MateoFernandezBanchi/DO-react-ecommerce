@@ -12,9 +12,9 @@ import {CartContextProvider} from './context/CartContext'
 
 function App() {
   return (
+    <div className="App">
     <CartContextProvider>
     <BrowserRouter>
-    <div className="App">
      
        <NavBar />
        <Switch>
@@ -28,11 +28,11 @@ function App() {
        <Route exact path='/Cart' component ={Cart}></Route>
       </Switch>
      
-       {/* <Footer /> 
-      */}
-    </div>
+       <Footer />
+      
     </BrowserRouter>
     </CartContextProvider>
+    </div>
   );
 }
 

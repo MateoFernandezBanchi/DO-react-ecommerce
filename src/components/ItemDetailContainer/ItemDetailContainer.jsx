@@ -10,7 +10,6 @@ export default function ItemDetailContainer() {
     const [loading, setLoading] = useState (true)
     const [addCart, setAddCart] = useState (true)
     const [count, setCount] = useState (0)
-
     const {detailID} = useParams();
     useEffect (() => {
         getFetch
@@ -24,6 +23,9 @@ export default function ItemDetailContainer() {
 
     const {CartList, agregarCarrito} = useCartContext () 
     // const productoSeleccionado = productos.find (prod => (prod.id === 3))
+    
+  
+    
     const onAdd = (cant) => {
         setCount (cant)
         setAddCart(false);
@@ -31,6 +33,7 @@ export default function ItemDetailContainer() {
     }
     console.log(CartList)
     console.log(count)
+
 
     return (
         <div>
