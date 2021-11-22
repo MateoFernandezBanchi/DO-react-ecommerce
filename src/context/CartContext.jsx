@@ -10,7 +10,7 @@ export const useCartContext = () => {
 
 export const CartContextProvider = ({children}) => {
   const [CartList, setCartList] = useState([]);
-  // const [cartTotal, setCartTotal] = useState()
+  const [disponibleProd, setDisponibleProd] = useState()
  
 
   const agregarCarrito = (item) => {
@@ -18,17 +18,28 @@ export const CartContextProvider = ({children}) => {
 
     const subTotal = item.precio * item.cantidad
     
-    if (index > -1) {
+   
+    // if ((index > -1) && (CartList[index].cantidad === item.stock) ) {
+
+    //   setDisponibleProd('No hay stock disponible')
+      
+    // } 
+    //  else
+      if (index > -1) {
+      
       const OldQuantity = CartList[index].cantidad;
       const OldSubTotal = CartList[index].subtotal;
-      
+      const stock = CartList[index].stock - CartList[index].cantidad
       CartList.splice(index, 1);
       setCartList([
         ...CartList,
-        { ...item, cantidad: item.cantidad + OldQuantity, subtotal: OldSubTotal + subTotal  },
+        { ...item, cantidad: item.cantidad + OldQuantity, subtotal: OldSubTotal + subTotal, stock: stock  },
       ]);
-    }  else  {
-      setCartList([...CartList, { ...item, subtotal: subTotal }]);
+    }
+    
+    else {
+      
+      setCartList([...CartList, { ...item, subtotal: subTotal}]);
     }
   };
   
@@ -58,8 +69,8 @@ export const CartContextProvider = ({children}) => {
           borrarCarrito,
           cantidadItem,
           borrarItem,
-          cartTotal
-    
+          cartTotal,
+          disponibleProd
         }}
       >
         {children}

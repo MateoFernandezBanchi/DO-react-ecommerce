@@ -66,7 +66,7 @@ export const Cart = () => {
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td></td>
+                  <td> <button className='buttonCount'>Finalizar Compra</button> </td>
                   <td className="totalCount">
                     <p> Total a pagar </p>
                     <p> $ {cartTotal} </p>

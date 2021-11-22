@@ -17,18 +17,18 @@ function ItemListContainer({saludo}) {
             getFetch
             .then (res => {
                 setProductos(res.filter(prod => prod.categoria === categoryID))
-            })
+         })
             .catch(err=> console.log(err))
             .finally(()=> setLoading(false))
         }
-        else {
-        getFetch
-        .then (res => {
-            setProductos(res)
+       else {
+     getFetch
+     .then (res => {
+         setProductos(res)
         })
-        .catch(err=> console.log(err))
-        .finally(()=> setLoading(false))}
-    },[categoryID])
+     .catch(err=> console.log(err))
+     .finally(()=> setLoading(false))}
+ },[categoryID])
 
     return (
         <>
