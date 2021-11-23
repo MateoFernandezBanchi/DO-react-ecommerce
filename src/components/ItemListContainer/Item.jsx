@@ -10,7 +10,7 @@ export const Item = ({prod, key}) => {
                         <h3 className='titleCardHeader'>{prod.nombre} </h3>
                     </div>
                     <div className='card-body'>
-                        <img className='cardFoto' src={prod.foto1} alt="" ></img>
+                        <img className='cardFoto' src={prod.imagen} alt="" ></img>
                         <p className='categoria'>{prod.categoria}</p>  
                     </div>
                     

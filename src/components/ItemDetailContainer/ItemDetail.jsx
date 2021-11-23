@@ -6,7 +6,7 @@ import Carousel from '../Carousel/Carousel'
 import { useCartContext } from '../../context/CartContext'
 
 export const ItemDetail = ({prod, state, onAdd}) => {
-  const {disponibleProd } = useCartContext ()
+
 
             return (
               <>
@@ -18,7 +18,7 @@ export const ItemDetail = ({prod, state, onAdd}) => {
                     <div className="col carousel">
                       {/* <img className='cardFoto' src={prod.foto} alt="" ></img> */}
                       <Carousel
-                        foto1={prod.foto1}
+                        foto1={prod.imagen}
                         foto2={prod.foto2}
                         foto3={prod.foto3}
                       />
@@ -28,7 +28,7 @@ export const ItemDetail = ({prod, state, onAdd}) => {
                       <p>Categoria: {prod.categoria} </p>
                       <p>Stock {prod.stock}</p>
                       <p>{prod.descripcion}</p>
-                      <p> {disponibleProd} </p>
+                      
                     </div>
                   </div>
 

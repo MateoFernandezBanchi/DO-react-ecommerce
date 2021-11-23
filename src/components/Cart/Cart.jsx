@@ -43,7 +43,7 @@ export const Cart = () => {
                 {CartList.map((prod) => (
                   <tr className="" key={prod.id}>
                     <td>
-                      <img className="fotoCart" src={prod.foto1} alt="" />
+                      <img className="fotoCart" src={prod.imagen} alt="" />
                     </td>
                     <td className="prodName">{prod.nombre}</td>
                     <td>{prod.cantidad}</td>

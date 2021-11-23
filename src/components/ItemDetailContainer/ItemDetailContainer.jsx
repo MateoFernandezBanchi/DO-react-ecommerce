@@ -3,6 +3,7 @@ import { getFetch } from '../../services/getFetch';
 import {ItemDetail} from './ItemDetail'
 import {useParams} from 'react-router-dom'
 import { useCartContext } from '../../context/CartContext';
+import {getFirestore} from '../../services/getFirestore';
 
 export default function ItemDetailContainer() {
 
@@ -11,12 +12,17 @@ export default function ItemDetailContainer() {
     const [addCart, setAddCart] = useState (true)
     const [count, setCount] = useState (0)
     const {detailID} = useParams();
+
     useEffect (() => {
+        const dbQuery = getFirestore()
+         dbQuery.collection('items').doc(detailID).get()
+             .then (resp => setProductos({ id:resp.id,...resp.data() }))
         getFetch
-        .then (res => {
-            setProductos(res.find(prod => prod.id == detailID))
+
+        // .then (res => {
+        //     setProductos(res.find(prod => prod.id == detailID))
             
-        })
+        // })
         .catch(err=> console.log(err))
         .finally(()=> setLoading(false))
     },[detailID])
