@@ -18,20 +18,11 @@ export default function ItemDetailContainer() {
          dbQuery.collection('items').doc(detailID).get()
              .then (resp => setProductos({ id:resp.id,...resp.data() }))
         getFetch
-
-        // .then (res => {
-        //     setProductos(res.find(prod => prod.id == detailID))
-            
-        // })
         .catch(err=> console.log(err))
         .finally(()=> setLoading(false))
     },[detailID])
 
-    const {CartList, agregarCarrito} = useCartContext () 
-    // const productoSeleccionado = productos.find (prod => (prod.id === 3))
-    
-  
-    
+    const {CartList, agregarCarrito} = useCartContext ()   
     const onAdd = (cant) => {
         setCount (cant)
         setAddCart(false);
@@ -40,17 +31,11 @@ export default function ItemDetailContainer() {
     console.log(CartList)
     console.log(count)
 
-
     return (
         <div>
-            { loading ? <div class="spinner-border text-light" role="status">
-  <span class="sr-only">Loading...</span> 
-</div>   :  <ItemDetail prod={productos} onAdd={onAdd} state= {addCart} />
-                
-        
-    }
-
-        
+                { loading ? <div class="spinner-border text-light" role="status">
+                                <span class="sr-only">Loading...</span> </div>   
+                            :  <ItemDetail prod={productos} onAdd={onAdd} state= {addCart} /> } 
         </div>
     )
 }
