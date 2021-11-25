@@ -1,14 +1,61 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { useCartContext } from '../../context/CartContext'
 import {Link} from 'react-router-dom'
 import './Cart.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import {getFirestore} from '../../services/getFirestore';
+import firebase from 'firebase';
+
+
+
 
 export const Cart = () => {
 
     const { CartList, borrarCarrito, borrarItem, cartTotal} = useCartContext ()
-    console.log (CartList)
+    const [formData, setFormData] = useState ( {
+      name: '',
+      email: '',
+      phone: ''
+
+    } ) 
+    const [order, setOrder] = useState ()
+
+    const generarOrden = (e) => {
+          e.preventDefault()
+          let orden = {}
+          orden.date = firebase.firestore.Timestamp.fromDate(new Date());
+          orden.buyer = formData
+          orden.total = cartTotal
+
+          orden.items = CartList.map (cartItem => {
+            const id = cartItem.id;
+            const nombre = cartItem.nombre;
+            const precio = cartItem.subtotal;
+
+            return {id, nombre, precio}
+          } )
+
+          const dbQuery = getFirestore ()
+          dbQuery.collection ('orders').add(orden)
+          .then(resp => console.log(resp))
+          .catch (err=> console.log (err))
+          
+    }
+
+   
+
+    const handleChange = (e) => {
+
+      setFormData ( {
+        ...formData,
+        [e.target.name]: e.target.value
+      } )
+
+    }
+
+    
+
     return (
       <div>
         {CartList.length === 0 ? (
@@ -29,11 +76,11 @@ export const Cart = () => {
             </div>
           </>
         ) : (
-          <>
-            <div className="cartContent container">
+          <div  className="row mr-3 ml-3">
+            <div className="cartContent container col-lg-7">
               <table>
                 <tr className="headerTable">
-                  <td> </td>
+                  <td>Producto</td>
                   <td>Nombre</td>
                   <td>Cantidad</td>
                   <td className="pl-5 pr-5">Precio</td>
@@ -62,19 +109,17 @@ export const Cart = () => {
                   </tr>
                 ))}
 
-                <tr className="totalCountContainer">
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td> <button className='buttonCount'>Finalizar Compra</button> </td>
-                  <td className="totalCount">
-                    <p> Total a pagar </p>
-                    <p> $ {cartTotal} </p>
+                <tr className="totalCountContainer  ">  
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                 <td className="totalCount p-2 pr-3">
+                    <p> Total a pagar: $ {cartTotal} </p>
                   </td>
-                  <td className="pr-5">
-                    Borrar Carrito
+                  <td className="pr-3">
+                    <span className='pr-3'>Borrar Carrito</span>   
                     <a className="btnTrash">
-                      {" "}
                       <FontAwesomeIcon
                         icon={faTrashAlt}
                         onClick={borrarCarrito}
@@ -84,8 +129,51 @@ export const Cart = () => {
                 </tr>
               </table>
             </div>
-          </>
+          
+            <div className="container formContainer col-lg-3">
+              <form
+                className="d-flex flex-column container pt-5 pb-5 formContainer"
+                onSubmit={generarOrden}
+                onChange={handleChange}
+              >
+                <div className='form-group'>
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="name"
+                    placeholder="nombre"
+                    value={formData.name}
+                  ></input>
+                </div>
+                <div className='form-group'>
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="phone"
+                    placeholder="telefono"
+                    value={formData.phone}
+                  ></input>
+                </div>
+                <div className='form-group'>
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="email"
+                    placeholder="email"
+                    value={formData.email}
+                  ></input>
+                </div>
+                <div>
+                          
+                <button className="buttonCount2" >Finalizar Compra</button>
+               
+                </div>
+              </form>
+            </div>
+          </div>
         )}
+
+
       </div>
     );
 }

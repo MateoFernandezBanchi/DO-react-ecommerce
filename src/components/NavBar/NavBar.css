@@ -1,3 +1,7 @@
+.navContainer {
+    background: linear-gradient(16deg, rgba(251, 142, 33, 1) 0%, rgba(236, 171, 33, 1) 49%, rgba(245, 167, 0, 1) 100%);
+}
+
 .green {
     color: green;
 }
@@ -9,7 +13,7 @@
 .tituloNav {
 
     font-size: 30px;
-    font-family: 'Times New Roman', Times, serif;
+     font-family: 'Outfit', sans-serif;
     align-self: center;
     justify-content: center;
 }
@@ -54,7 +58,7 @@
 }
 
 .navbar {
-    background-color: rgb(233, 167, 27);
+    /* background-color: rgb(233, 167, 27); */
     padding-top: 2px;
     padding-bottom: 2px;
 }
@@ -73,6 +77,10 @@
     position: absolute;
     bottom: 20px;
     margin-left: 35px;
+}
+
+.searchForm {
+    padding-top: 1rem;
 }
 
 @media (max-width: 1024px) {

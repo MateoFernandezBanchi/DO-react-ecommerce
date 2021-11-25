@@ -27,9 +27,9 @@ function App() {
        <Route exact path='/detail/:detailID' component ={ ItemDetailContainer}></Route>
        <Route exact path='/Cart' component ={Cart}></Route>
       </Switch>
-     
+   
        <Footer />
-      
+       
     </BrowserRouter>
     </CartContextProvider>
     </div>

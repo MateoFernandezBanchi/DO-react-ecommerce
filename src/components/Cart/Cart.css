@@ -2,11 +2,11 @@
     color: white;
 }
 
-.cartContent {
+/* .cartContent {
     background-color: antiquewhite;
-    width: 60%;
     
-}
+    
+} */
 
 .prodName {
     font-size: 20px;
@@ -41,6 +41,14 @@
 } */
 
 .totalCountContainer {
+    
     background-color: black;
     color: white;
+    bottom: 0;
+
+}
+
+.formContainer{
+    background-color: #F0A912;
+    width: 80%;
 }

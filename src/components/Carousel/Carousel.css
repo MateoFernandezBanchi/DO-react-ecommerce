@@ -1,3 +1,7 @@
 .imgCarousel {
    margin: 0 auto;
 }
+
+.carousel-control-next, .carousel-control-next-icon, .sr-only {
+   color: black;
+}

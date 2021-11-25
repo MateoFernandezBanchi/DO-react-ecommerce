@@ -18,5 +18,10 @@ background: linear-gradient(16deg, rgba(251,142,33,1) 0%, rgba(236,171,33,1) 49%
 }
 
 .carousel {
-    width: 60%;
+    width: 80%;
+}
+
+.card-body {
+    height: auto;
+    
 }

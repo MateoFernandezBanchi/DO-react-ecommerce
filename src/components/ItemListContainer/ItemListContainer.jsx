@@ -12,11 +12,7 @@ function ItemListContainer({saludo}) {
     
     useEffect (() => {
             const dbQuery = getFirestore()
-
             if (categoryID) {
-            // dbQuery.collection('items').doc('E9XEpPwUI5dJMgR2qQuZ').get()
-            // .then (resp => setProd({ id:resp.id,...resp.data() }))
-            
             dbQuery.collection('items').where('categoria','==',categoryID).get()
             .then (data => setProductos(data.docs.map(pro =>({id:pro.id,...pro.data()}))))
             .catch(err=> console.log(err))
@@ -26,10 +22,7 @@ function ItemListContainer({saludo}) {
         .then (data => setProductos(data.docs.map(pro =>({id:pro.id,...pro.data()}))))
         .catch(err=> console.log(err))
          .finally(()=> setLoading(false))
-
     }
-
-
 },[categoryID])
  
 //     {

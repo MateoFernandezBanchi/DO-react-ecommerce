@@ -19,8 +19,8 @@ export const ItemDetail = ({prod, state, onAdd}) => {
                       {/* <img className='cardFoto' src={prod.foto} alt="" ></img> */}
                       <Carousel
                         foto1={prod.imagen}
-                        foto2={prod.foto2}
-                        foto3={prod.foto3}
+                        foto2={prod.imagen2}
+                        foto3={prod.imagen3}
                       />
                     </div>
                     <div className="col">
@@ -32,13 +32,13 @@ export const ItemDetail = ({prod, state, onAdd}) => {
                     </div>
                   </div>
 
-                  <div className="card-footer">
+                  <div className="card-footer footer-detail">
                     {state ? (
                       <><ItemCount stock={prod.stock} initial="1" onAdd={onAdd} /></>
                     ) : (
                       <>
                         <Link to="/">
-                          <button className="buttonCount">Seguir comprando</button>
+                          <button className="buttonCount2">Seguir comprando</button>
                         </Link>
                         <Link to="/Cart">
                           <button className="buttonCount">Ir al Carrito</button>
