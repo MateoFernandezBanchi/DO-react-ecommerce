@@ -10,7 +10,7 @@ import ModalBuyer from '../ModalBuyer/ModalBuyer'
 
 
 export const Cart = () => {
-
+  
     const { CartList, borrarCarrito, borrarItem, cartTotal} = useCartContext ()
     const [formData, setFormData] = useState ( {
       name: '',
@@ -19,14 +19,15 @@ export const Cart = () => {
 
     } ) 
     const [error, guardarError] = useState (false)
-   
+    const [orderId, setOrderId] = useState ()
+
     const generarOrden = (e) => {
           e.preventDefault()
 
           if (formData.email.trim() === '' || formData.name.trim() === '' || formData.phone.trim()=== '') {
             guardarError(true)
             return;
-          }
+          } else {
           guardarError(false)
           let orden = {}
           orden.date = firebase.firestore.Timestamp.fromDate(new Date());
@@ -43,10 +44,14 @@ export const Cart = () => {
 
           const dbQuery = getFirestore ()
           dbQuery.collection ('orders').add(orden)
+          .then(({id} ) => { 
+            setOrderId(id)  })
           .then(resp => console.log(resp))
-          .catch (err=> console.log (err))
-          
-    }
+         
+          .catch (err=> console.log (err))   
+              console.log (orderId)
+
+    }}
 
     const handleChange = (e) => {
 
@@ -164,7 +169,7 @@ export const Cart = () => {
                     ></input>
                   </div>
                   <div>
-                    <ModalBuyer data= {formData} total= {cartTotal} errorValue= {error} />
+                    <ModalBuyer data= {formData} total= {cartTotal} errorValue= {error} id= {orderId} />
                       
                   </div>
                 </form>
