@@ -66,7 +66,7 @@ export const Cart = () => {
       <div>
         {CartList.length === 0 ? (
           <>
-            <h2 className="cartTitle mt-5">Aun no ha comprado nada</h2>
+            <h2 className="cartTitle mt-5">Carrito vacío ¡Elija un producto!</h2>
             <img
               className="gifWaiting"
               src="https://cdn.dribbble.com/users/1813781/screenshots/5597337/dribbble-girl-with-clock.gif"

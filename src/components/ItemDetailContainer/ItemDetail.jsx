@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 import Carousel from '../Carousel/Carousel'
-import { useCartContext } from '../../context/CartContext'
+
 
 export const ItemDetail = ({prod, state, onAdd}) => {
 

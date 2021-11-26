@@ -65,6 +65,7 @@ export const CartContextProvider = ({children}) => {
       <CartContext.Provider
         value={{
           CartList,
+          setCartList,
           agregarCarrito,
           borrarCarrito,
           cantidadItem,

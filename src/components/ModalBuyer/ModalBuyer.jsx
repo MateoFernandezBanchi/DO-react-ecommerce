@@ -1,10 +1,15 @@
 import React, { useState } from "react";
+import { useCartContext } from '../../context/CartContext';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
- 
+
+
+
 const ModalBuyer = ( {data, total, errorValue, id} ) => {
+  const {setCartList} = useCartContext ()   
   const [modal, setModal] = useState(false);
- const toggle = () => setModal(!modal);
-  console.log(errorValue)
+ const toggle = () => { setModal(!modal);}
+ const cleanCart = () => { setCartList([]);}
+ console.log(errorValue)
  
   
 return (
@@ -21,9 +26,12 @@ return (
           </div>
         </ModalBody>
         <ModalFooter className='card-footer'>
-          <Button color="success" onClick={toggle}>
+          {errorValue?  <Button color="success" onClick={toggle}>
             OK
-          </Button>
+          </Button> :  <Button color="success" onClick={toggle, cleanCart}>
+            OK
+          </Button>}
+         
         </ModalFooter>
       </Modal>
     </div>
