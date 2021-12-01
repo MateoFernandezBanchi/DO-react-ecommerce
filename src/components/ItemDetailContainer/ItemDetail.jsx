@@ -3,10 +3,10 @@ import {Link} from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
 import Carousel from '../Carousel/Carousel'
+import FormatPrice from "../../hooks/FormatPrice";
 
 
 export const ItemDetail = ({prod, state, onAdd}) => {
-
 
             return (
               <>
@@ -24,7 +24,7 @@ export const ItemDetail = ({prod, state, onAdd}) => {
                       />
                     </div>
                     <div className="col">
-                      <h3> $ {prod.precio}</h3>
+                      <h3> {FormatPrice(prod.precio)} </h3>
                       <p>Categoria: {prod.categoria} </p>
                       <p>Stock {prod.stock}</p>
                       <p>{prod.descripcion}</p>
@@ -34,17 +34,15 @@ export const ItemDetail = ({prod, state, onAdd}) => {
 
                   <div className="card-footer footer-detail">
                     {state ? (
-                      <><ItemCount stock={prod.stock} initial="1" onAdd={onAdd} /></>
-                    ) : (
-                      <>
+                      <><ItemCount stock={prod.stock} initial="1" onAdd={onAdd} /></>) 
+                      : (<>
                         <Link to="/">
                           <button className="buttonCount2">Seguir comprando</button>
                         </Link>
                         <Link to="/Cart">
                           <button className="buttonCount">Ir al Carrito</button>
                         </Link>
-                      </>
-                    )}
+                      </>)}
                   </div>
                 </div>
               </>

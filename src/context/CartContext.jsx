@@ -1,30 +1,18 @@
 import {createContext, useState, useContext} from 'react'
-
-
 const CartContext = createContext([])
 
 export const useCartContext = () => {
     return useContext(CartContext) 
 }
 
-
 export const CartContextProvider = ({children}) => {
   const [CartList, setCartList] = useState([]);
-  const [disponibleProd, setDisponibleProd] = useState()
- 
 
   const agregarCarrito = (item) => {
     const index = CartList.findIndex((i) => i.id === item.id);
 
     const subTotal = item.precio * item.cantidad
-    
-   
-    // if ((index > -1) && (CartList[index].cantidad === item.stock) ) {
 
-    //   setDisponibleProd('No hay stock disponible')
-      
-    // } 
-    //  else
       if (index > -1) {
       
       const OldQuantity = CartList[index].cantidad;
@@ -35,12 +23,8 @@ export const CartContextProvider = ({children}) => {
         ...CartList,
         { ...item, cantidad: item.cantidad + OldQuantity, subtotal: OldSubTotal + subTotal, stock: stock  },
       ]);
-    }
-    
-    else {
-      
-      setCartList([...CartList, { ...item, subtotal: subTotal}]);
-    }
+    } 
+    else {setCartList([...CartList, { ...item, subtotal: subTotal}]);}
   };
   
       const cartTotal = CartList.reduce ((total,item)=> total + item.subtotal, 0)
@@ -58,8 +42,6 @@ export const CartContextProvider = ({children}) => {
     setCartList(CartList.filter((i) => i.id !== id));
   };
 
-  
-
   return (
     <div>
       <CartContext.Provider
@@ -71,7 +53,6 @@ export const CartContextProvider = ({children}) => {
           cantidadItem,
           borrarItem,
           cartTotal,
-          disponibleProd
         }}
       >
         {children}

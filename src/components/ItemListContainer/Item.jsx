@@ -1,7 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import FormatPrice from "../../hooks/FormatPrice";
 
-export const Item = ({prod, key}) => {
+export const Item = ({prod}) => {
     return (
        
         <div className='card mt-4 card-margin'>
@@ -10,18 +11,14 @@ export const Item = ({prod, key}) => {
                         <h3 className='titleCardHeader'>{prod.nombre} </h3>
                     </div>
                     <div className='card-body'>
-                        <img className='cardFoto' src={prod.imagen} alt="" ></img>
+                        <img className='cardFoto' srcSet={prod.imagen} alt="" ></img>
                         <p className='categoria'>{prod.categoria}</p>  
                     </div>
-                    
-                     <div className='card-footer'>
-                   
-                     <p className='precio'> $ {prod.precio} </p> 
-                       
+                    <div className='card-footer'>
+                        <p className='precio'> {FormatPrice(prod.precio)} </p>  
                     </div> 
-                    
-                    </Link>
-                 </div>
+             </Link>
+        </div>
                
     )
 }

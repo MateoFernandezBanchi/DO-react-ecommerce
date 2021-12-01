@@ -1,5 +1,4 @@
 import React from 'react'
-import './Carousel.css';
 
 
 function Carousel({foto1, foto2, foto3} ) {
@@ -10,13 +9,13 @@ function Carousel({foto1, foto2, foto3} ) {
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img  src={foto1}  className="d-block w-50 imgCarousel" alt="..."/>
+      <img  srcSet={foto1}  className="d-block w-100 imgCarousel" alt="..."/>
     </div>
     <div class="carousel-item">
-      <img src={foto2} className="d-block w-50 imgCarousel" alt="..."/>
+      <img srcSet={foto2} className="d-block w-100 imgCarousel" alt="..."/>
     </div>
     <div class="carousel-item">
-      <img  src={foto3} className="d-block w-50 imgCarousel" alt="..."/>
+      <img  srcSet={foto3} className="d-block w-100 imgCarousel" alt="..."/>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
