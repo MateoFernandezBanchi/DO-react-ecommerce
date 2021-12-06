@@ -9,24 +9,34 @@ const FormBuyer = () => {
     const [formData, setFormData] = useState ( {
         name: '',
         email: '',
+        email2:'',
         phone: ''
   
       } ) 
       const [error, guardarError] = useState (false)
       const [orderId, setOrderId] = useState ()
       const [submit, setSubmit] = useState (false)
-
-      const changeSubmit = () => {
-        setSubmit (true)
-      }
+      const [mensajeError, setMensajeError] = useState ('')
+      
 
     const generarOrden = (e) => {
         e.preventDefault()
         if (formData.email.trim() === '' || formData.name.trim() === '' || formData.phone.trim()=== '') {
           guardarError(true)
+          setMensajeError('Todos los campos son obligatorios')
           return;
+        } 
+        else if (formData.email !== formData.email2) {
+          guardarError(true)
+          setMensajeError('El email ingresado no es válido')
+          console.log(formData.email)
+          console.log(formData.email2)
+          console.log(error)
+          return;
+         
         } else {
         guardarError(false)
+        setSubmit (true)
         let orden = {}
         orden.date = firebase.firestore.Timestamp.fromDate(new Date());
         orden.buyer = formData
@@ -53,7 +63,7 @@ const FormBuyer = () => {
     return ( 
         <>
             <div className="container formContainer col-lg-3">
-                {error? <p className='btn-danger'>todos los campos son obligatorios</p> : null}
+                
                 <form className="d-flex flex-column container pt-5 pb-5 formContainer" 
                 onSubmit={generarOrden} onChange={handleChange}>
                   <div className='form-group'>
@@ -68,11 +78,14 @@ const FormBuyer = () => {
                     <input className="form-control" type="text" 
                     name="email" placeholder="email" value={formData.email} onChange={handleChange}></input>
                   </div>
+                  <div className='form-group'>
+                    <input className="form-control" type="text" 
+                    name="email2" placeholder="verifique email" value={formData.email2} onChange={handleChange}></input>
+                  </div>
+                  {error? <p className='btn-danger'> {mensajeError} </p> : null}
                   <div>
-                    {submit ? <ModalBuyer data= {formData} total= {cartTotal} id= {orderId} />
-                    : <button type='submit' onClick= {changeSubmit} > Finalizar compra</button> }
-                     
-                  
+                    {submit ? <ModalBuyer data= {formData} total= {cartTotal} id= {orderId}/>
+                    : <button className='buttonCount2' type='submit' onClick= {generarOrden} > Finalizar compra</button> }
                   </div>
                 </form>
               </div>
