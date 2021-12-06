@@ -14,6 +14,11 @@ const FormBuyer = () => {
       } ) 
       const [error, guardarError] = useState (false)
       const [orderId, setOrderId] = useState ()
+      const [submit, setSubmit] = useState (false)
+
+      const changeSubmit = () => {
+        setSubmit (true)
+      }
 
     const generarOrden = (e) => {
         e.preventDefault()
@@ -33,6 +38,7 @@ const FormBuyer = () => {
           return {id, nombre, precio}
         } )
 
+      
         const dbQuery = getFirestore ()
         dbQuery.collection ('orders').add(orden)
         .then(({id} ) => { 
@@ -52,18 +58,21 @@ const FormBuyer = () => {
                 onSubmit={generarOrden} onChange={handleChange}>
                   <div className='form-group'>
                     <input className="form-control" type="text" name="name" placeholder="nombre" 
-                    value={formData.name}></input>
+                    value={formData.name} onChange={handleChange}></input>
                   </div>
                   <div className='form-group'>
                     <input className="form-control" type="text" 
-                    name="phone" placeholder="telefono"value={formData.phone}></input>
+                    name="phone" placeholder="telefono" value={formData.phone} onChange={handleChange}></input>
                   </div>
                   <div className='form-group'>
                     <input className="form-control" type="text" 
-                    name="email" placeholder="email" value={formData.email}></input>
+                    name="email" placeholder="email" value={formData.email} onChange={handleChange}></input>
                   </div>
                   <div>
-                    <ModalBuyer data= {formData} total= {cartTotal} errorValue= {error} id= {orderId} /> 
+                    {submit ? <ModalBuyer data= {formData} total= {cartTotal} id= {orderId} />
+                    : <button type='submit' onClick= {changeSubmit} > Finalizar compra</button> }
+                     
+                  
                   </div>
                 </form>
               </div>

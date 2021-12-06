@@ -31,8 +31,8 @@ export default function ItemDetailContainer() {
 
     return (
         <div>
-                { loading ? <div class="spinner-border text-light" role="status">
-                                <span class="sr-only">Loading...</span> </div>   
+                { loading ? <div className="spinner-border text-light" role="status">
+                                <span className="sr-only">Loading...</span> </div>   
                             :  <ItemDetail prod={productos} onAdd={onAdd} state= {addCart} /> } 
         </div>
     )

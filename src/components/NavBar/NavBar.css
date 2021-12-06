@@ -49,13 +49,15 @@
     align-self: center;
 }
 
-.form-control2 {
+ .form-control2 {
     width: 400px;
     padding: 8px;
     border-radius: 10px;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    border-color: chocolate;
-}
+    border: none;
+   
+
+} 
 
 .navbar {
     /* background-color: rgb(233, 167, 27); */
@@ -87,4 +89,13 @@
     .form-control2 {
         width: 100%;
         
-    }}
+    }
+
+    .tituloNav {
+
+        font-size: 18px;
+         font-family: 'Outfit', sans-serif;
+        align-self: center;
+        justify-content: center;
+    }
+}

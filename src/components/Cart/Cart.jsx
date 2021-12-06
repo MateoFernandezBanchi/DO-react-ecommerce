@@ -42,16 +42,16 @@ export const Cart = () => {
                   {CartList.map((prod) => (
                     <tr className="" key={prod.id}>
                       <td>
-                        <img className="fotoCart" srcSet={prod.imagen} alt="" />
+                        <img className="fotoCart" src={prod.imagen} alt="" />
                       </td>
                       <td className="prodName">{prod.nombre}</td>
                       <td>{prod.cantidad}</td>
                       <td>{FormatPrice(prod.precio)} </td>
                       <td> {FormatPrice(prod.subtotal)} </td>
                       <td>
-                        <a>
+                        
                           <FontAwesomeIcon icon={faTrashAlt} onClick={() => {borrarItem(prod.id)}} />
-                        </a>
+                        
                       </td>
                     </tr>
                   ))}
@@ -66,9 +66,9 @@ export const Cart = () => {
                     </td>
                     <td className="pr-3">
                       <span className='pr-3'>Borrar Carrito</span>
-                      <a className="btnTrash">
+                    
                         <FontAwesomeIcon icon={faTrashAlt} onClick={borrarCarrito} />
-                      </a>
+                    
                     </td>
                   </tr>
                 </table>

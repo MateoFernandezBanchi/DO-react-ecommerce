@@ -7,13 +7,14 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import { Cart } from './components/Cart/Cart';
 import {CartContextProvider} from './context/CartContext'
 import Home from './components/Home/Home';
-
+import {SearchContextProvider} from './context/SearchContext'
 
 
 
 function App() {
   return (
     <div className="App">
+    <SearchContextProvider>
     <CartContextProvider>
     <BrowserRouter>
      
@@ -32,6 +33,7 @@ function App() {
        
     </BrowserRouter>
     </CartContextProvider>
+    </SearchContextProvider>
        <Footer />
     </div>
   );
