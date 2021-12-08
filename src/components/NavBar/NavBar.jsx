@@ -1,6 +1,7 @@
 import React from 'react'
 import './NavBar.css';
 import CartWidget from './CartWidget'
+import WishWidget from './WishWidget'
 import {Link} from 'react-router-dom'
 import { useCartContext } from '../../context/CartContext';
 import SearchUI from '../Search/SearchUI';
@@ -24,7 +25,7 @@ const { cantidadItem } = useCartContext()
               <h1 className="tituloNav">DO - MUEBLES A MEDIDA</h1>
             </div>
             <div>
-                 <SearchUI />
+                <SearchUI />
             </div>
            </header>
           <nav className="navbar navbar-expand-lg navbar-light  d-flexCenter">
@@ -43,6 +44,9 @@ const { cantidadItem } = useCartContext()
                 <Link to='/Cart'> 
                 <li className="nav-item d-flex nav-link cartItem"><CartWidget />
                   <div className='cantidadItem'>{cantidadItem() !== 0 && cantidadItem()}</div></li>
+                  </Link>
+                  <Link to='/Wishlist'> 
+                <li className="nav-item d-flex nav-link cartItem"><WishWidget /></li>
                   </Link>
               </ul>
             </div>

@@ -3,23 +3,19 @@ import { useCartContext } from '../../context/CartContext';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
 import FormatPrice from "../../hooks/FormatPrice";
 
-
 const ModalBuyer = ( {data, total, id} ) => {
   const {setCartList} = useCartContext ()   
   const [modal, setModal] = useState(false);
  const toggle = () => { setModal(!modal);}
  const cleanCart = () => { setCartList([]);}
 
- 
-  
 return (
         
     <div style={{ textAlign: "center" }}>
       <Button onClick={toggle}>Orden de compra</Button>
       <Modal size="m" isOpen={modal} toggle={toggle}>
         <ModalHeader className='card-header'>Orden de compra</ModalHeader>
-        <ModalBody style={{ height: "75vh" }}>
-          
+        <ModalBody style={{ height: "75vh" }}>   
           <div>
           <h2> ¡Gracias por su compra </h2>
           <h2> {data.name}! </h2>
@@ -30,10 +26,7 @@ return (
           </div>
         </ModalBody>
         <ModalFooter className='card-footer'>
-         <Button color="success" onClick={cleanCart}>
-            OK
-          </Button>
-         
+         <Button color="success" onClick={cleanCart}> OK</Button>
         </ModalFooter>
       </Modal>
     </div>

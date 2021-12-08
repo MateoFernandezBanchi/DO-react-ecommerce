@@ -8,7 +8,7 @@ import { Cart } from './components/Cart/Cart';
 import {CartContextProvider} from './context/CartContext'
 import Home from './components/Home/Home';
 import {SearchContextProvider} from './context/SearchContext'
-
+import { WishList } from './components/WishList/WishList';
 
 
 function App() {
@@ -28,6 +28,7 @@ function App() {
         
        <Route exact path='/detail/:detailID' component ={ ItemDetailContainer}></Route>
        <Route exact path='/Cart' component ={Cart}></Route>
+       <Route exact path='/WishList' component ={WishList}></Route>
       </Switch>
    
        

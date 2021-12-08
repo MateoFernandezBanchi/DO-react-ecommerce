@@ -67,7 +67,7 @@ const FormBuyer = () => {
                 <form className="d-flex flex-column container pt-5 pb-5 formContainer" 
                 onSubmit={generarOrden} onChange={handleChange}>
                   <div className='form-group'>
-                    <input className="form-control" type="text" name="name" placeholder="nombre" 
+                    <input className="form-control" type="text" name="name" placeholder="nombre y apellido" 
                     value={formData.name} onChange={handleChange}></input>
                   </div>
                   <div className='form-group'>

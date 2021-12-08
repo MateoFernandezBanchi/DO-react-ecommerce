@@ -6,9 +6,7 @@ export const useSearchContext = () => {
 
 export const SearchContextProvider = ( {children} ) => {
     const [search, saveSearch] = useState('');
-  
 
-  
     return (
       <div>
         <SearchContext.Provider

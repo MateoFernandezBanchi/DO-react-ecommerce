@@ -20,15 +20,13 @@ export default function ItemDetailContainer() {
         .finally(()=> setLoading(false))
     },[detailID])
 
-    const {CartList, agregarCarrito} = useCartContext ()   
+    const {agregarCarrito} = useCartContext ()   
     const onAdd = (cant) => {
         setCount (cant)
         setAddCart(false);
         agregarCarrito({...productos, cantidad: cant})
     }
-    console.log(CartList)
-    console.log(count)
-
+    
     return (
         <div>
                 { loading ? <div className="spinner-border text-light" role="status">
