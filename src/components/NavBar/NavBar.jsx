@@ -5,15 +5,15 @@ import WishWidget from './WishWidget'
 import {Link} from 'react-router-dom'
 import { useCartContext } from '../../context/CartContext';
 import SearchUI from '../Search/SearchUI';
-import { useSearchContext } from '../../context/SearchContext'
+import {useAuthContext } from '../../context/AuthContext';
+
 
 const NavBar = () => {
-  const { saveSearch} = useSearchContext ()
-const resetSearch = () => {
-  saveSearch('')
-}
+// const resetSearch = () => {
+//   saveSearch('')
+// }
 
-
+const {photo, displayName, user, cerrarSesion} = useAuthContext () 
 const { cantidadItem } = useCartContext()
   return (
         <div className='navContainer'>
@@ -38,16 +38,40 @@ const { cantidadItem } = useCartContext()
                 
               <Link to='/'> <li className="nav-item nav-link">Inicio</li></Link>
               <Link to='/productos'> <li className="nav-item nav-link">Todos los productos</li></Link>
-                <Link to='/productos/categoria/Placards'><li className="nav-item nav-link" onClick= {resetSearch}>Placards</li></Link>
-                <Link to='/productos/categoria/Cama' > <li className="nav-item nav-link" onClick= {resetSearch}>Camas</li></Link>
-                <Link to='/productos/categoria/Escritorios'> <li className="nav-item nav-link" onClick= {resetSearch}>Escritorios</li></Link>
+                <Link to='/productos/categoria/Placards'><li className="nav-item nav-link" >Placards</li></Link>
+                <Link to='/productos/categoria/Cama' > <li className="nav-item nav-link" >Camas</li></Link>
+                <Link to='/productos/categoria/Escritorios'> <li className="nav-item nav-link" >Escritorios</li></Link>
                 <Link to='/Cart'> 
                 <li className="nav-item d-flex nav-link cartItem"><CartWidget />
                   <div className='cantidadItem'>{cantidadItem() !== 0 && cantidadItem()}</div></li>
                   </Link>
                   <Link to='/Wishlist'> 
-                <li className="nav-item d-flex nav-link cartItem"><WishWidget /></li>
+                <li className="nav-item ml-3 nav-link cartItem"><WishWidget /></li>
                   </Link>
+                   <Link to='/CrearCuenta'> 
+                <li className="nav-item ml-3 nav-link cartItem">Crear Cuenta</li>
+                  </Link>
+                 <Link to='/IniciarSesion'> 
+                <li className="nav-item ml-3 nav-link cartItem">Iniciar Sesion</li>
+                  </Link>
+                  <li class="nav-item dropdown">
+                  <Link className="nav-link dropdown-toggle" id="navbarDropdown" 
+                  role="button" data-toggle="dropdown" aria-expanded="false">
+        {photo ?
+                    <div className='d-flex align-items-center'>
+                        <img src={photo} alt="user photo" className='userPhoto'/>
+                        <span className='ml-2 align-self-center'> {displayName} </span>
+                    </div>
+                    : user ? <span> {user.email}  </span> : <span></span>
+                    }  
+                    </Link>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <Link className="dropdown-item" onClick={cerrarSesion}>Cerrar Sesión</Link>
+         
+        </div>
+      </li>
+                   
               </ul>
             </div>
           </nav>

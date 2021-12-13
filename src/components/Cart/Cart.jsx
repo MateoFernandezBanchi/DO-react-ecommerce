@@ -18,7 +18,7 @@ export const Cart = () => {
         {CartList.length === 0 ? (
           <>
             <h2 className="cartTitle mt-5">Carrito vacío ¡Elija un producto!</h2>
-            <img className="gifWaiting" src="https://cdn.dribbble.com/users/1813781/screenshots/5597337/dribbble-girl-with-clock.gif" alt="" srcset=""/>
+            <img className="gifWaiting" src="https://cdn.dribbble.com/users/1813781/screenshots/5597337/dribbble-girl-with-clock.gif" alt=""/>
             <div>
               <Link to="/productos">
                 <button className="buttonCount mt-5">
@@ -31,6 +31,7 @@ export const Cart = () => {
           <><div className="row mr-3 ml-3">
               <div className="cartContent container col-lg-7">
                 <table>
+                <thead>
                   <tr className="headerTable">
                     <td>Producto</td>
                     <td>Nombre</td>
@@ -39,8 +40,10 @@ export const Cart = () => {
                     <td>Subtotal</td>
                     <td>Borrar item</td>
                   </tr>
+                  </thead>
                   {CartList.map((prod) => (
-                    <tr className="" key={prod.id}>
+                    <tbody key={prod.id}>
+                    <tr>
                       <td>
                         <img className="fotoCart" src={prod.imagen} alt="" />
                       </td>
@@ -49,13 +52,14 @@ export const Cart = () => {
                       <td>{FormatPrice(prod.precio)} </td>
                       <td> {FormatPrice(prod.subtotal)} </td>
                       <td>
-                        
+                        <button className='buttonCount2 '>
                           <FontAwesomeIcon icon={faTrashAlt} onClick={() => {borrarItem(prod.id)}} />
-                        
+                          </button>
                       </td>
                     </tr>
+                    </tbody>
                   ))}
-
+                  <tfoot>
                   <tr className="totalCountContainer  ">
                     <td></td>
                     <td></td>
@@ -66,11 +70,12 @@ export const Cart = () => {
                     </td>
                     <td className="pr-3">
                       <span className='pr-3'>Borrar Carrito</span>
-                    
+                      <button className='buttonCount '>
                         <FontAwesomeIcon icon={faTrashAlt} onClick={borrarCarrito} />
-                    
+                      </button>
                     </td>
                   </tr>
+                  </tfoot>
                 </table>
               </div>
 

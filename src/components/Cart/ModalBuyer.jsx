@@ -19,7 +19,7 @@ return (
           <div>
           <h2> ¡Gracias por su compra </h2>
           <h2> {data.name}! </h2>
-          <img className='w-50' src="https://almusan.com/images/2021/01/26/envio.camion.gif" alt="" srcset="" />
+          <img className='w-50' src="https://almusan.com/images/2021/01/26/envio.camion.gif" alt="" />
           <h3> Su pago por: {FormatPrice(total)} ya esta realizado</h3>
           <h4> Su ID de compra es: {id} </h4><h4>En 3 dias recibirá su pedido</h4>
           <h4> Se ha enviado a su email <span className="font-weight-bold"> {data.email} </span> el comprobante </h4>

@@ -1,16 +1,19 @@
 import React, {memo} from 'react'
 import { Item } from './Item'
-import { useSearchContext } from '../../context/SearchContext'
+import {useParams} from 'react-router-dom'
+
 
 export const ItemList = memo(({productos}) => {
-   const { search} = useSearchContext ()
+  const {searchkey} = useParams();
 
     return (
         <>
-         {productos.filter((prod)=> {
-           if  (search === '') {return prod} else if (prod.nombre.toLowerCase().includes(search.toLowerCase())) 
+  {productos.filter((prod)=> {
+
+           if  (searchkey === undefined) {return prod} else if (prod.nombre.toLowerCase().includes(searchkey.toLowerCase())) 
            {return prod}; 
          }).map (prod => <Item prod={prod} key={prod.id}/>)}
+
         </> 
     )
 })

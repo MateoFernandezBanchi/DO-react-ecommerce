@@ -9,8 +9,9 @@ function ItemListContainer({saludo}) {
     const [productos, setProductos] = useState ([])
     const [loading, setLoading] = useState (true)
     const {categoryID} = useParams();
-    
    
+   
+   console.log(categoryID)
     
     useEffect (() => {
         
@@ -22,9 +23,12 @@ function ItemListContainer({saludo}) {
              .finally(()=> setLoading(false))
           },[categoryID])
 
+        
     return (
         <>
-         
+           
+        
+
             <div>
             
                 <p className="bienvenida"> {saludo}  </p> 
@@ -37,6 +41,7 @@ function ItemListContainer({saludo}) {
                 </div> 
                 
                 : <ItemList productos={productos} />}
+        
             </div> 
         </>
     )

@@ -45,8 +45,7 @@ export const WishListItem = ({prod}) => {
                       <button onClick={() => {borrarItemWish(prod.id)}} className='ml-5 mt-5 titleCardHeader buttonCount2'> Eliminar <FontAwesomeIcon icon={faTrashAlt}  /></button>
                 
             </div> 
-        
-     
+    
 </div>
         </div>
     )

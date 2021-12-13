@@ -85,6 +85,13 @@
     padding-top: 1rem;
 }
 
+.userPhoto {
+    width: 40px;
+    border-radius: 30px;
+}
+
+
+
 @media (max-width: 1024px) {
     .form-control2 {
         width: 100%;

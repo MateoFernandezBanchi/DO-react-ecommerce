@@ -3,8 +3,12 @@ import {getFirestore} from '../../services/getFirestore';
 import firebase from 'firebase';
 import ModalBuyer from './ModalBuyer'
 import { useCartContext } from '../../context/CartContext'
+import {useAuthContext } from '../../context/AuthContext';
+
 const FormBuyer = () => {
     const { CartList, cartTotal} = useCartContext ()
+    const {setPass, passwordConfirmation, setPasswordConfirmation, loginGoogle, user, 
+      password, setPassword} = useAuthContext () 
 
     const [formData, setFormData] = useState ( {
         name: '',
@@ -29,9 +33,11 @@ const FormBuyer = () => {
         else if (formData.email !== formData.email2) {
           guardarError(true)
           setMensajeError('El email ingresado no es válido')
-          console.log(formData.email)
-          console.log(formData.email2)
-          console.log(error)
+          return;
+         
+        } else if (password !== passwordConfirmation) {
+          guardarError(true)
+          setMensajeError('Debe ingresar la misma contraeña')
           return;
          
         } else {
@@ -82,9 +88,22 @@ const FormBuyer = () => {
                     <input className="form-control" type="text" 
                     name="email2" placeholder="verifique email" value={formData.email2} onChange={handleChange}></input>
                   </div>
-                  {error? <p className='btn-danger'> {mensajeError} </p> : null}
+                  <div className='form-group'>
+                    <input 
+                    onChange={(e)=>{setPassword(e.target.value)}}
+                    className="form-control" type="password" 
+                    name="password" placeholder="password" value={password}></input>
+                  </div>
+                  <div className='form-group'>
+                    <input 
+                    onChange={(e)=>{setPasswordConfirmation(e.target.value)}}
+                    className="form-control" type="password" 
+                    name="password" placeholder="password confirmation"  value={passwordConfirmation}></input>
+                  </div>
+                  {error? <p className='btn-danger'> {mensajeError} </p> 
+                  : null}
                   <div>
-                    {submit ? <ModalBuyer data= {formData} total= {cartTotal} id= {orderId}/>
+                    {submit ?<div> <p className='btn-success'> Compra realizada con éxito </p>  <ModalBuyer data= {formData} total= {cartTotal} id= {orderId}/></div>
                     : <button className='buttonCount2' type='submit' onClick= {generarOrden} > Finalizar compra</button> }
                   </div>
                 </form>

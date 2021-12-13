@@ -1,4 +1,6 @@
 import {createContext, useState, useContext} from 'react'
+
+
 const CartContext = createContext([])
 
 export const useCartContext = () => {
@@ -7,7 +9,11 @@ export const useCartContext = () => {
 
 export const CartContextProvider = ({children}) => {
   const [CartList, setCartList] = useState([]);
-  const [wishList, setWishList ] = useState([]) 
+  const [wishList, setWishList ] = useState([]); 
+  const [currentUser, serCurrentUser] = useState([]); 
+
+
+  //------------------ Funciones Carrito------------------------------------
 
   const agregarCarrito = (item) => {
     const index = CartList.findIndex((i) => i.id === item.id);
@@ -43,7 +49,7 @@ export const CartContextProvider = ({children}) => {
     setCartList(CartList.filter((i) => i.id !== id));
   };
 
-
+//-------------- Funciones WishList-------------------
   const agregarWish = (item) => {
     const index = wishList.findIndex((i) => i.id === item.id);
     if (index > -1) {setWishList([...wishList]);
@@ -55,6 +61,8 @@ export const CartContextProvider = ({children}) => {
   const borrarItemWish = (id) => {
     setWishList(wishList.filter((i) => i.id !== id));
   };
+
+  //Funciones Auth User
   
   return (
     <div>
