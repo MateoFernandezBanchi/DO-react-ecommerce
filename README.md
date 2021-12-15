@@ -6,7 +6,7 @@
 Prototipo de ecommerce de la tienda DO- Muebles a medida. Las decisiones estéticas (colores, tipografía, etc), se basan en el diseño preexistente de la marca.
 ##### Fecha de realización: octubre- diciembre 2021
 
-### [DEMO](https://61ba3052f6622c5e7d81d9f3--do-ecommerce.netlify.app/productos)
+### [DEMO](https://61ba3052f6622c5e7d81d9f3--do-ecommerce.netlify.app)
 
 
 ### Que podrás hacer
