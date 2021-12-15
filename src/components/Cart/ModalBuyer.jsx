@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useCartContext } from '../../context/CartContext';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap";
-import FormatPrice from "../../hooks/FormatPrice";
+import FormatPrice from "../../PriceHook/FormatPrice";
 
 const ModalBuyer = ( {data, total, id} ) => {
   const {setCartList} = useCartContext ()   

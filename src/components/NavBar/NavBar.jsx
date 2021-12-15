@@ -14,8 +14,6 @@ const NavBar = () => {
 const {photo, displayName, user, cerrarSesion} = useAuthContext () 
 const { cantidadItem, wishList } = useCartContext();
 
-console.log(wishList.length)
-
   return (
         <div className='navContainer'>
           <header className="d-flex flex-wrap">

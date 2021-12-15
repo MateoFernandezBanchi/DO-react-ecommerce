@@ -13,7 +13,6 @@ export const ItemList = memo(({productos}) => {
            if  (searchkey === undefined) {return prod} else if (prod.nombre.toLowerCase().includes(searchkey.toLowerCase())) 
            {return prod}; 
          }).map (prod => <Item prod={prod} key={prod.id}/>)}
-
         </> 
     )
 })

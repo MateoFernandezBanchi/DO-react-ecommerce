@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 import './Cart.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
-import FormatPrice from "../../hooks/FormatPrice";
+import FormatPrice from "../../PriceHook/FormatPrice";
 import FormBuyer from './FormBuyer'
 import { Login } from '../Authlogin/Login'
 
@@ -79,9 +79,7 @@ export const Cart = () => {
                   </tfoot>
                 </table>
               </div>
-                      {user? <FormBuyer /> : <Login />}
-           
-                  
+                      {user? <FormBuyer /> : <Login />}   
               </div> 
             </>                  
         )}

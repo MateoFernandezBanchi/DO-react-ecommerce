@@ -10,16 +10,13 @@ const ItemCount = ({ stock, initial, onAdd }) => {
       setCount(count + 1);
     } else {
       setStockMessage ('No hay más stock disponible')
-      eraseStockMessage()
-      
+      eraseStockMessage()  
     }
-    console.log(count);
   };
   const restarContador = () => {
     if (count > initial) {
       setCount(count - 1);
     }
-    console.log(count);
   };
 
   const eraseStockMessage=()=> {

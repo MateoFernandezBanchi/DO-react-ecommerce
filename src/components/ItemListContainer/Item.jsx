@@ -1,31 +1,23 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
-import FormatPrice from "../../hooks/FormatPrice";
-import {useCartContext } from '../../context/CartContext';
+import FormatPrice from "../../PriceHook/FormatPrice";
+import {useAuthContext } from '../../context/AuthContext';
 import { useEffect } from 'react/cjs/react.development';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart} from '@fortawesome/free-solid-svg-icons'
 export const Item = ({prod}) => {
 
-    const {agregarWish, wishList} = useCartContext () 
-    // const [productosWish, setProductosWish] = useState ()
+    const {agregarWish, wishList} = useAuthContext () 
     const [wishAdded, setWishAdded] = useState (false)
     const insertWishList = () => {
-        // setProductosWish(prod)
-        agregarWish(prod)
-        
-        
+        agregarWish(prod)    
     }
     useEffect (() => {
           if (wishList.find((i) => i.id === prod.id)) {
         setWishAdded(true)
        
     } else {setWishAdded(false)} },[wishList])
-    console.log(wishAdded) 
   
-    
-    
-   
     return (
        
         <div className='card w-25 mt-4 card-margin'>

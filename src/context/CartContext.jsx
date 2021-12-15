@@ -10,8 +10,6 @@ export const useCartContext = () => {
 export const CartContextProvider = ({children}) => {
   const [CartList, setCartList] = useState([]);
   const [wishList, setWishList ] = useState([]); 
- 
-
 
   //------------------ Funciones Carrito------------------------------------
 
@@ -35,7 +33,7 @@ export const CartContextProvider = ({children}) => {
   };
   
       const cartTotal = CartList.reduce ((total,item)=> total + item.subtotal, 0)
-      console.log (cartTotal)
+    
   
   const borrarCarrito = () => {
     setCartList([]);
@@ -62,8 +60,6 @@ export const CartContextProvider = ({children}) => {
     setWishList(wishList.filter((i) => i.id !== id));
   };
 
-
-  
   return (
     <div>
       <CartContext.Provider

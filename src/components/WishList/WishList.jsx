@@ -1,13 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { useCartContext } from '../../context/CartContext'
 import {useAuthContext } from '../../context/AuthContext';
 import { WishListItem } from './WishListItem';
 
-
 export const WishList = () => {
-    const { wishList} = useCartContext ()
-    const {user, displayName} = useAuthContext ()
+    const {user, displayName, wishList} = useAuthContext ()
     return ( 
        
         <div className=''>

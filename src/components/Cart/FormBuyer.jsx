@@ -10,7 +10,7 @@ const FormBuyer = () => {
     const {user} = useAuthContext () 
 
     const [formData, setFormData] = useState ( {
-        name: user ? user.displayName : '',
+        name: user.displayName ? user.displayName : '',
         email: user ? user.email : '',
         email2: user ? user.email : '',
         phone: ''
@@ -32,9 +32,6 @@ const FormBuyer = () => {
           guardarError(true)
           setMensajeError('El email ingresado no es válido')
           return;
-         
-       
-         
         } else {
         guardarError(false)
         setSubmit (true)
@@ -48,15 +45,12 @@ const FormBuyer = () => {
           const precio = cartItem.subtotal;
           return {id, nombre, precio}
         } )
-
-      
         const dbQuery = getFirestore ()
         dbQuery.collection ('orders').add(orden)
         .then(({id} ) => { 
           setOrderId(id)  })
         .then(resp => console.log(resp))
         .catch (err=> console.log (err))   
-            console.log (orderId)
   }}
 
     const handleChange = (e) => { setFormData ( {...formData,[e.target.name]: e.target.value})}

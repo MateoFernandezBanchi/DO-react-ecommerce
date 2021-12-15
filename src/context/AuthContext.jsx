@@ -1,6 +1,5 @@
 import {createContext, useState, useContext, useEffect} from 'react'
-
-import { auth, google } from '../services/getFirestore'
+import {auth, google } from '../services/getFirestore'
 
 
 const AuthContext = createContext([])
@@ -20,23 +19,45 @@ export const AuthContextProvider = ({children}) => {
     const [photo, setPhoto] = useState (null)
     const [displayName, setDisplayName] = useState (null)
     const [mensajeError, setMensajeError] = useState ('')
- 
+    const [wishList, setWishList ] = useState([]); 
+    const [success, setSuccess] = useState(false)
+    const [mensajeSuccess, setMensajeSuccess] = useState ()
+    
+//-------------- Funciones WishList-------------------
+const agregarWish = (item) => {
+  const index = wishList.findIndex((i) => i.id === item.id);
+  if (index > -1) {setWishList([...wishList]);
+console.log (wishList)
+} else {
+  setWishList([...wishList, item]);
+} }
+
+const borrarItemWish = (id) => {
+  setWishList(wishList.filter((i) => i.id !== id));
+};
+//--------------- Funciones Crear cuenta e Iniciar Sesion----------------
    function registrarUsuario (e)  {
       
         e.preventDefault()
         if (password !== passwordConfirmation) {
           setError(true)
           setMensajeError('Debe ingresar la misma contraeña')  }
-          else {
+          else if (password.length < 6) {
+            setError(true)
+            setMensajeError('La contraseña debe tener mínimo 6 caracteres')
+          } else if (email.includes('.' && '@')) {
         auth.createUserWithEmailAndPassword(email, password)
         .then ((res)=> 
-        console.log(res))}
-    }
+        setMensajeSuccess('Cuenta creada con éxito'),setError(false), setSuccess(true))}
+      else {
+        setError(true)
+            setMensajeError('El email ingresado no es valido')
+      }}
 
     const login = (e) => {
       e.preventDefault()
       auth.signInWithEmailAndPassword(email, password)
-      .then ((res)=>  console.log(res)   
+      .then ((res)=> console.log(res)   
       )
     }
 
@@ -49,20 +70,21 @@ export const AuthContextProvider = ({children}) => {
         setDisplayName(res.user.displayName)
     }).catch(err=> {console.log(err)}) 
     }
-
-    useEffect (() => {
+     useEffect (() => {
+     
         const unsubscribe = auth.onAuthStateChanged(user => {
           setUser(user)
           setLoading(false)  
-          console.log(user.uid)   
         })
-        return unsubscribe
-    },[])
+       return unsubscribe
+
+     },[wishList])
 
     const cerrarSesion= () => {
       auth.signOut()
       setPhoto(null)
       setUser(null)
+      setWishList([])
       }
     
     return (
@@ -75,7 +97,6 @@ export const AuthContextProvider = ({children}) => {
               setEmail,
               setName,
               name,
-              passwordConfirmation,
               password,
               setPasswordConfirmation,
               photo,
@@ -86,11 +107,16 @@ export const AuthContextProvider = ({children}) => {
               cerrarSesion, 
               setError, 
               error, 
-              mensajeError
+              mensajeError,
+              agregarWish,
+              wishList,
+              borrarItemWish,
+              success, 
+              mensajeSuccess
             }}
           >
             {!loading && children}
           </AuthContext.Provider>
         </div>
       );
-}
+}  

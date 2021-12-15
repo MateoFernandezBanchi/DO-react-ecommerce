@@ -1,21 +1,24 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
-import FormatPrice from "../../hooks/FormatPrice";
+import FormatPrice from "../../PriceHook/FormatPrice";
 import ItemCount from '../ItemCount/ItemCount'
 import {useCartContext } from '../../context/CartContext';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useAuthContext } from '../../context/AuthContext';
 
 export const WishListItem = ({prod}) => {
-
+ 
      const [addCart, setAddCart] = useState (true)
-    const {borrarItemWish, agregarCarrito} = useCartContext () 
+    const { agregarCarrito} = useCartContext () 
+    const {borrarItemWish} = useAuthContext () 
      const [count, setCount] = useState (0)
      const onAdd = (cant) => {
          setCount (cant)
          setAddCart(false);
          agregarCarrito({...prod, cantidad: cant})
      }
+
     return (
         
         <div className='container'>
