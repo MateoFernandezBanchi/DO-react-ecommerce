@@ -1,16 +1,17 @@
 import React from 'react'
 import { useCartContext } from '../../context/CartContext'
+import { useAuthContext } from '../../context/AuthContext'
 import {Link} from 'react-router-dom'
 import './Cart.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
-
 import FormatPrice from "../../hooks/FormatPrice";
 import FormBuyer from './FormBuyer'
+import { Login } from '../Authlogin/Login'
 
 
 export const Cart = () => {
-  
+  const {user} = useAuthContext ()
     const { CartList, borrarCarrito, borrarItem, cartTotal} = useCartContext ()
 
     return (
@@ -78,8 +79,8 @@ export const Cart = () => {
                   </tfoot>
                 </table>
               </div>
-
-              <FormBuyer />
+                      {user? <FormBuyer /> : <Login />}
+           
                   
               </div> 
             </>                  

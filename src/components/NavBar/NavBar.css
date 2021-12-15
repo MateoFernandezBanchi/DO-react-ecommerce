@@ -2,10 +2,6 @@
     background: linear-gradient(16deg, rgba(251, 142, 33, 1) 0%, rgba(236, 171, 33, 1) 49%, rgba(245, 167, 0, 1) 100%);
 }
 
-.green {
-    color: green;
-}
-
 .logoNav {
     width: 70px;
 }
@@ -58,7 +54,9 @@
    
 
 } 
-
+.dropdown-menu {
+    background-color: rgba(0, 0, 0, 0);
+}
 .navbar {
     /* background-color: rgb(233, 167, 27); */
     padding-top: 2px;

@@ -6,15 +6,16 @@ import {Link} from 'react-router-dom'
 import { useCartContext } from '../../context/CartContext';
 import SearchUI from '../Search/SearchUI';
 import {useAuthContext } from '../../context/AuthContext';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserCircle, faUserEdit} from '@fortawesome/free-solid-svg-icons'
 
 const NavBar = () => {
-// const resetSearch = () => {
-//   saveSearch('')
-// }
 
 const {photo, displayName, user, cerrarSesion} = useAuthContext () 
-const { cantidadItem } = useCartContext()
+const { cantidadItem, wishList } = useCartContext();
+
+console.log(wishList.length)
+
   return (
         <div className='navContainer'>
           <header className="d-flex flex-wrap">
@@ -49,27 +50,30 @@ const { cantidadItem } = useCartContext()
                 <li className="nav-item ml-3 nav-link cartItem"><WishWidget /></li>
                   </Link>
                    <Link to='/CrearCuenta'> 
-                <li className="nav-item ml-3 nav-link cartItem">Crear Cuenta</li>
+                <li className="nav-item ml-3 nav-link cartItem">Crear Cuenta
+                <FontAwesomeIcon className='ml-2' icon={faUserEdit} /></li>
                   </Link>
-                 <Link to='/IniciarSesion'> 
-                <li className="nav-item ml-3 nav-link cartItem">Iniciar Sesion</li>
-                  </Link>
-                  <li class="nav-item dropdown">
-                  <Link className="nav-link dropdown-toggle" id="navbarDropdown" 
+                  {user ?<span></span> :  <Link to='/IniciarSesion'> 
+                <li className="nav-item ml-3 nav-link cartItem">Iniciar Sesion
+                <FontAwesomeIcon icon={faUserCircle} /></li>
+                  </Link>  }
+                 
+                  <li className="nav-item dropdown">
+                  <a href='#' className="nav-link dropdown-toggle" id="navbarDropdown" 
                   role="button" data-toggle="dropdown" aria-expanded="false">
-        {photo ?
+                  { photo ?
                     <div className='d-flex align-items-center'>
                         <img src={photo} alt="user photo" className='userPhoto'/>
                         <span className='ml-2 align-self-center'> {displayName} </span>
                     </div>
                     : user ? <span> {user.email}  </span> : <span></span>
                     }  
-                    </Link>
-
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <Link className="dropdown-item" onClick={cerrarSesion}>Cerrar Sesión</Link>
+                    </a>
+         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a className="dropdown-item buttonCount" onClick={cerrarSesion}>Cerrar Sesión</a>
          
-        </div>
+        </div> 
+      
       </li>
                    
               </ul>

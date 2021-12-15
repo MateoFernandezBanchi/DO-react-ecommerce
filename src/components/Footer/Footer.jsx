@@ -31,9 +31,9 @@ function Footer() {
             <div className="col-lg-4 col-sm-12">
             <ul className="mt-5 mb-3">
                     <li><h4>REDES SOCIALES</h4></li>
-                    <li>Instagram</li>
-                    <li>Facebook</li>
-                    <li>Linkedin</li>
+                    <li> <a href="https://www.instagram.com/d.o.muebles/" target="_blank">Instagram</a> </li>
+                    <li><a href="https://www.facebook.com" target="_blank"> 
+                   Facebook</a></li>
                     
                 </ul>
             </div>

@@ -1,19 +1,31 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import FormatPrice from "../../hooks/FormatPrice";
-import WishWidget from '../NavBar/WishWidget';
 import {useCartContext } from '../../context/CartContext';
-
+import { useEffect } from 'react/cjs/react.development';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart} from '@fortawesome/free-solid-svg-icons'
 export const Item = ({prod}) => {
 
-    const {agregarWish} = useCartContext () 
+    const {agregarWish, wishList} = useCartContext () 
     // const [productosWish, setProductosWish] = useState ()
-   
+    const [wishAdded, setWishAdded] = useState (false)
     const insertWishList = () => {
         // setProductosWish(prod)
         agregarWish(prod)
+        
+        
     }
-
+    useEffect (() => {
+          if (wishList.find((i) => i.id === prod.id)) {
+        setWishAdded(true)
+       
+    } else {setWishAdded(false)} },[wishList])
+    console.log(wishAdded) 
+  
+    
+    
+   
     return (
        
         <div className='card w-25 mt-4 card-margin'>
@@ -34,8 +46,8 @@ export const Item = ({prod}) => {
                         <button className='buttonCount2'>Ver detalles</button>  
                         </Link>
                        
-                        <button onClick= {insertWishList} className='ml-5 heartSize buttonCount2'>
-                        <WishWidget />
+                        <button style={{color: wishAdded ? 'red' : 'black' } } onClick= {insertWishList} className='ml-5 heartSize buttonWish'>
+                        <FontAwesomeIcon icon={faHeart} />
                         </button>
                         </div>
                     </div> 

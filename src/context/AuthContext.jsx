@@ -1,4 +1,5 @@
 import {createContext, useState, useContext, useEffect} from 'react'
+
 import { auth, google } from '../services/getFirestore'
 
 
@@ -10,6 +11,7 @@ export const useAuthContext = () => {
 
 export const AuthContextProvider = ({children}) => {
     const [email, setEmail] = useState('');
+    const [name, setName] = useState ('');
     const [password, setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
     const [loading, setLoading] = useState (true)
@@ -17,66 +19,78 @@ export const AuthContextProvider = ({children}) => {
     const [user, setUser] = useState (null)
     const [photo, setPhoto] = useState (null)
     const [displayName, setDisplayName] = useState (null)
+    const [mensajeError, setMensajeError] = useState ('')
+ 
+   function registrarUsuario (e)  {
+      
+        e.preventDefault()
+        if (password !== passwordConfirmation) {
+          setError(true)
+          setMensajeError('Debe ingresar la misma contraeña')  }
+          else {
+        auth.createUserWithEmailAndPassword(email, password)
+        .then ((res)=> 
+        console.log(res))}
+    }
 
+    const login = (e) => {
+      e.preventDefault()
+      auth.signInWithEmailAndPassword(email, password)
+      .then ((res)=>  console.log(res)   
+      )
+    }
 
-const registrarUsuario = (e) => {
-    e.preventDefault()
-    auth.createUserWithEmailAndPassword(email, password)
-    .then ((res)=> alert ('usuario registrado'))
-}
+    const loginGoogle = () => {
+    auth.signInWithPopup(google)
+    .then (res => {
+        console.log(res.user)
+        setUser(res.user)
+        setPhoto(res.user.photoURL)
+        setDisplayName(res.user.displayName)
+    }).catch(err=> {console.log(err)}) 
+    }
 
-const login = (e) => {
-  e.preventDefault()
-  auth.signInWithEmailAndPassword(email, password)
-  .then ((res)=> alert ('Bienvenido!'))
-}
+    useEffect (() => {
+        const unsubscribe = auth.onAuthStateChanged(user => {
+          setUser(user)
+          setLoading(false)  
+          console.log(user.uid)   
+        })
+        return unsubscribe
+    },[])
 
-const loginGoogle = () => {
-auth.signInWithPopup(google)
-.then (res => {
-    console.log(res.user)
-    setUser(res.user)
-    setPhoto(res.user.photoURL)
-    setDisplayName(res.user.displayName)
-}).catch(err=> {console.log(err)}) 
-}
-
-const cerrarSesion= () => {
-auth.signOut()
-}
-
-
-
-useEffect (() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
-      setUser(user)      
-      setLoading(false)     
-    })
-    return unsubscribe
-},[])
-
-return (
-    <div>
-      <AuthContext.Provider
-        value={{
-          setUser, 
-          user, 
-          setPassword,
-          setEmail,
-          passwordConfirmation,
-          password,
-          setPasswordConfirmation,
-          photo,
-          displayName,
-          registrarUsuario,
-          login,
-          loginGoogle,
-          cerrarSesion, 
-          setError
-        }}
-      >
-        {!loading && children}
-      </AuthContext.Provider>
-    </div>
-  );
+    const cerrarSesion= () => {
+      auth.signOut()
+      setPhoto(null)
+      setUser(null)
+      }
+    
+    return (
+        <div>
+          <AuthContext.Provider
+            value={{
+              setUser, 
+              user, 
+              setPassword,
+              setEmail,
+              setName,
+              name,
+              passwordConfirmation,
+              password,
+              setPasswordConfirmation,
+              photo,
+              displayName,
+              registrarUsuario,
+              login,
+              loginGoogle,
+              cerrarSesion, 
+              setError, 
+              error, 
+              mensajeError
+            }}
+          >
+            {!loading && children}
+          </AuthContext.Provider>
+        </div>
+      );
 }

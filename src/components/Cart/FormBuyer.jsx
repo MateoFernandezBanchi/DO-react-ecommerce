@@ -7,15 +7,13 @@ import {useAuthContext } from '../../context/AuthContext';
 
 const FormBuyer = () => {
     const { CartList, cartTotal} = useCartContext ()
-    const {setPass, passwordConfirmation, setPasswordConfirmation, loginGoogle, user, 
-      password, setPassword} = useAuthContext () 
+    const {user} = useAuthContext () 
 
     const [formData, setFormData] = useState ( {
-        name: '',
-        email: '',
-        email2:'',
+        name: user ? user.displayName : '',
+        email: user ? user.email : '',
+        email2: user ? user.email : '',
         phone: ''
-  
       } ) 
       const [error, guardarError] = useState (false)
       const [orderId, setOrderId] = useState ()
@@ -25,7 +23,7 @@ const FormBuyer = () => {
 
     const generarOrden = (e) => {
         e.preventDefault()
-        if (formData.email.trim() === '' || formData.name.trim() === '' || formData.phone.trim()=== '') {
+        if (formData.email === '' || formData.name === '' || formData.phone === '') {
           guardarError(true)
           setMensajeError('Todos los campos son obligatorios')
           return;
@@ -35,10 +33,7 @@ const FormBuyer = () => {
           setMensajeError('El email ingresado no es válido')
           return;
          
-        } else if (password !== passwordConfirmation) {
-          guardarError(true)
-          setMensajeError('Debe ingresar la misma contraeña')
-          return;
+       
          
         } else {
         guardarError(false)
@@ -88,22 +83,12 @@ const FormBuyer = () => {
                     <input className="form-control" type="text" 
                     name="email2" placeholder="verifique email" value={formData.email2} onChange={handleChange}></input>
                   </div>
-                  <div className='form-group'>
-                    <input 
-                    onChange={(e)=>{setPassword(e.target.value)}}
-                    className="form-control" type="password" 
-                    name="password" placeholder="password" value={password}></input>
-                  </div>
-                  <div className='form-group'>
-                    <input 
-                    onChange={(e)=>{setPasswordConfirmation(e.target.value)}}
-                    className="form-control" type="password" 
-                    name="password" placeholder="password confirmation"  value={passwordConfirmation}></input>
-                  </div>
+                 
                   {error? <p className='btn-danger'> {mensajeError} </p> 
-                  : null}
+                  : null }
                   <div>
-                    {submit ?<div> <p className='btn-success'> Compra realizada con éxito </p>  <ModalBuyer data= {formData} total= {cartTotal} id= {orderId}/></div>
+                    {submit ?<div> <p className='btn-success'> Compra realizada con éxito </p>  
+                    <ModalBuyer data= {formData} total= {cartTotal} id= {orderId}/></div>
                     : <button className='buttonCount2' type='submit' onClick= {generarOrden} > Finalizar compra</button> }
                   </div>
                 </form>

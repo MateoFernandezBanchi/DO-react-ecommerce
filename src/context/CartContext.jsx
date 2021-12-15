@@ -10,7 +10,7 @@ export const useCartContext = () => {
 export const CartContextProvider = ({children}) => {
   const [CartList, setCartList] = useState([]);
   const [wishList, setWishList ] = useState([]); 
-  const [currentUser, serCurrentUser] = useState([]); 
+ 
 
 
   //------------------ Funciones Carrito------------------------------------
@@ -62,7 +62,7 @@ export const CartContextProvider = ({children}) => {
     setWishList(wishList.filter((i) => i.id !== id));
   };
 
-  //Funciones Auth User
+
   
   return (
     <div>

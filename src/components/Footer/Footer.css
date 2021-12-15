@@ -20,3 +20,10 @@ li {
 .footerList1 {
     padding: 2rem
 }
+
+a {
+    color: white;
+}
+a:hover {
+    color: #F0A912;
+}

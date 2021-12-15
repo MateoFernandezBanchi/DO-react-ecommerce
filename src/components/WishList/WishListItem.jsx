@@ -8,31 +8,38 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const WishListItem = ({prod}) => {
 
-    const [addCart, setAddCart] = useState (true)
-    const {agregarCarrito, borrarItemWish} = useCartContext () 
-    const [count, setCount] = useState (0)
-    const onAdd = (cant) => {
-        setCount (cant)
-        setAddCart(false);
-        agregarCarrito({...prod, cantidad: cant})
-    }
+     const [addCart, setAddCart] = useState (true)
+    const {borrarItemWish, agregarCarrito} = useCartContext () 
+     const [count, setCount] = useState (0)
+     const onAdd = (cant) => {
+         setCount (cant)
+         setAddCart(false);
+         agregarCarrito({...prod, cantidad: cant})
+     }
     return (
         
-        <div className=''>
+        <div className='container'>
                <div className='card mt-4 card-margin '>
             
             <div className='card-header d-flex'>
                 <h3 className='titleCardHeader'>{prod.nombre} </h3>
                
             </div>
-            <div className='card-body'>
-                <img className='cardFoto' srcSet={prod.imagen} alt="" ></img>
+            <div className='card-body row'>
+              <div className='col'>
+              <img className='cardFotoWish ' srcSet={prod.imagen} alt="Foto producto" ></img>
                 <p className='categoria'>{prod.categoria}</p>  
                 <p>Stock: {prod.stock} </p>
+              </div>
+               <div className='col'>
+                  <p>{prod.descripcion}</p>
+                  <button onClick={() => {borrarItemWish(prod.id)}} className='ml-5 mt-5 titleCardHeader buttonCount2'>
+                  Eliminar <FontAwesomeIcon icon={faTrashAlt}  /></button>
+               </div>
             </div>
             <div className='card-footer'>
                 <p className='precio'> {FormatPrice(prod.precio)} </p>
-                {addCart ? (
+                 {addCart ? (
                       <><ItemCount stock={prod.stock} initial="1" onAdd={onAdd} /></>) 
                       : (<>
                         <Link to="/">
@@ -41,8 +48,8 @@ export const WishListItem = ({prod}) => {
                         <Link to="/Cart">
                           <button className="buttonCount">Ir al Carrito</button>
                         </Link>
-                      </>)}
-                      <button onClick={() => {borrarItemWish(prod.id)}} className='ml-5 mt-5 titleCardHeader buttonCount2'> Eliminar <FontAwesomeIcon icon={faTrashAlt}  /></button>
+                      </>)} 
+                      
                 
             </div> 
     
