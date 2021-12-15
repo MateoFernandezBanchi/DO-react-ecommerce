@@ -8,16 +8,10 @@ import { faHeart} from '@fortawesome/free-solid-svg-icons'
 export const Item = ({prod}) => {
 
     const {agregarWish, wishList} = useAuthContext () 
-    const [wishAdded, setWishAdded] = useState (false)
     const insertWishList = () => {
         agregarWish(prod)    
     }
-    useEffect (() => {
-          if (wishList.find((i) => i.id === prod.id)) {
-        setWishAdded(true)
-       
-    } else {setWishAdded(false)} },[wishList])
-  
+
     return (
        
         <div className='card w-25 mt-4 card-margin'>
@@ -38,7 +32,7 @@ export const Item = ({prod}) => {
                         <button className='buttonCount2'>Ver detalles</button>  
                         </Link>
                        
-                        <button style={{color: wishAdded ? 'red' : 'black' } } onClick= {insertWishList} className='ml-5 heartSize buttonWish'>
+                        <button style={{color:  (wishList.find((item) => item.id === prod.id)  ? 'red' : 'black')   } } onClick= {insertWishList} className='ml-5 heartSize buttonWish'>
                         <FontAwesomeIcon icon={faHeart} />
                         </button>
                         </div>
