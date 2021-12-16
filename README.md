@@ -53,6 +53,6 @@ localhost:3000/
 ## Licencia
 
 App creada por Mateo Fernández Banchi
-###### [Linkedin](https://www.linkedin.com/in/mateofernandezbanchi/)
+##### [Linkedin](https://www.linkedin.com/in/mateofernandezbanchi/)
 
 **Libre de uso**
