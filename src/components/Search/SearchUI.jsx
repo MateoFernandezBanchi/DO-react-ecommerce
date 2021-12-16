@@ -24,7 +24,7 @@ const SearchUI = () => {
             type="search" placeholder="¿Que deseas buscar?" aria-label="Search" 
              onChange = {e => saveSearch(e.target.value)}
             />
-            <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar 
+            <button style={{margin:'0 auto'}} className="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar 
                  </button>
                 
         </form>

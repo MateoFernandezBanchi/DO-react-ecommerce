@@ -23,7 +23,7 @@ function App() {
      
        <NavBar />
        <Switch>
-       <Route exact path='/'> <Home/></Route>
+       <Route exact path='/home' component ={Home}></Route>
         <Route exact path='/productos'> 
         <ItemListContainer saludo= {"¿Qué esperas para mejorar tu hogar?"}/></Route> 
         <Route exact path='/productos/categoria/:categoryID'> 

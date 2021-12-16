@@ -95,3 +95,10 @@ a:hover {
         width: 80%;
     }
 }
+
+
+@media (min-width: 1024px) {
+    .card {
+        width: 25%;
+    }
+}

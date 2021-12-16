@@ -14,7 +14,7 @@ export const Item = ({prod}) => {
 
     return (
        
-        <div className='card w-25 mt-4 card-margin'>
+        <div className='card mt-4 card-margin'>
             
                     <div className='card-header'>
                         <h3 className='titleCardHeader'>{prod.nombre} </h3>

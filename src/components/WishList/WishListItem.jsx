@@ -22,7 +22,7 @@ export const WishListItem = ({prod}) => {
     return (
         
         <div className='container'>
-               <div className='card mt-4 card-margin '>
+               <div style={{width:'100%' }} className='card mt-4 card-margin '>
             
             <div className='card-header d-flex'>
                 <h3 className='titleCardHeader'>{prod.nombre} </h3>
