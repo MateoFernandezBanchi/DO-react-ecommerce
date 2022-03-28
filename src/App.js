@@ -1,4 +1,4 @@
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import './App.css';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
@@ -20,25 +20,23 @@ function App() {
  <AuthContextProvider>
     <CartContextProvider>
     <BrowserRouter>
-     
        <NavBar />
-       <Switch>
-       <Route exact path='/home' component ={Home}></Route>
-        <Route exact path='/productos'> 
-        <ItemListContainer saludo= {"¿Qué esperas para mejorar tu hogar?"}/></Route> 
-        <Route exact path='/productos/categoria/:categoryID'> 
-        <ItemListContainer saludo= {"¿Qué esperas para mejorar tu hogar?"}/></Route> 
-        <Route exact path='/productos/search/:searchkey'> 
-        <ItemListContainer saludo= {"¿Qué esperas para mejorar tu hogar?"}/></Route> 
-       <Route exact path='/detail/:detailID' component ={ ItemDetailContainer}></Route>
-       <Route exact path='/Cart' component ={Cart}></Route>
-       <Route exact path='/WishList' component ={WishList}></Route>
-       <Route exact path='/CrearCuenta' component ={SignUp}></Route>
-        <Route exact path='/iniciarSesion' component ={Login}></Route> 
-      </Switch>
-   
-       
-    </BrowserRouter>
+       <Routes>
+       <Route index element={<Home/>}></Route>
+        <Route path='/productos' element = {<ItemListContainer saludo= "¿Qué esperas para mejorar tu hogar?"/>}> 
+       </Route> 
+        <Route path='/productos/categoria/:categoryID' element = {<ItemListContainer saludo= "¿Qué esperas para mejorar tu hogar?"/>}> 
+       </Route> 
+        <Route path='/productos/search/:searchkey' element = {<ItemListContainer saludo= "¿Qué esperas para mejorar tu hogar?"/>}> 
+        </Route> 
+       <Route path='/detail/:detailID' element ={ <ItemDetailContainer/>}></Route>
+       <Route path='/Cart' element ={<Cart/>}></Route>
+       <Route path='/WishList' element ={<WishList/>}></Route>
+       <Route path='/CrearCuenta' element ={<SignUp/>}></Route>
+        <Route path='/iniciarSesion' element ={<Login/>}></Route> 
+        </Routes>
+      </BrowserRouter>
+    
     </CartContextProvider>
     </AuthContextProvider>
        <Footer />

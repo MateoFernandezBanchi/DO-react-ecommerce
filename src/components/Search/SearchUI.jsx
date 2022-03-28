@@ -1,5 +1,5 @@
 import React,{ useState } from 'react'
-import {Redirect} from 'react-router-dom' 
+import {useNavigate} from 'react-router-dom' 
 
 
 const SearchUI = () => {
@@ -12,10 +12,14 @@ const SearchUI = () => {
         setSubmitvalid(true)
         if (search.trim() === '') return;
     }
+        let navigate = useNavigate();
+        function handleClick() {
+          navigate(`/productos/search/${search}`)
+        }
     return ( 
        <div>
-           {submitvalid? <Redirect to={`/productos/search/${search}`} /> : 
-           <Redirect to='/productos' />}
+           {/* {submitvalid? <Redirect to={`/productos/search/${search}`} /> : 
+           <Redirect to='/productos' />} */}
             
         <form className="form-inline my-2 my-lg-0 searchForm"
             onSubmit= {searchProduct}
@@ -24,7 +28,8 @@ const SearchUI = () => {
             type="search" placeholder="¿Que deseas buscar?" aria-label="Search" 
              onChange = {e => saveSearch(e.target.value)}
             />
-            <button style={{margin:'0 auto'}} className="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar 
+            <button style={{margin:'0 auto'}} className="btn btn-outline-success my-2 my-sm-0" type="submit"
+            onClick={handleClick}>Buscar 
                  </button>
                 
         </form>
